@@ -1,0 +1,43 @@
+.navbar{
+    position: fixed;
+    display: flex;
+    align-items: center;
+    top: 0;
+    width: 100%;
+    border: 2px solid black;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2%;
+    text-wrap: nowrap;
+    padding: 0 20px;
+}
+
+.logo img{
+    width: auto;
+    height: 70px;
+}
+
+.lists{
+    width: 30%;
+}
+.lists ul{
+    display: flex;
+    gap: 5%;
+    list-style: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.lists ul a{
+    color: black;
+    text-decoration: underline;
+}
+
+.navButton{
+    padding: 0 20px;
+
+}

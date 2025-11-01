@@ -1,0 +1,61 @@
+body{
+    margin:0;
+    padding:0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.bg-black{
+    background-color: black;
+
+}
+
+.bg-white{
+    background-color: white;
+
+}
+
+.bg-green{
+    background-color: green;
+
+}
+
+.txt-color-black{
+
+    color:black;
+}
+
+.txt-color-white{
+
+    color:white;
+}
+
+.m20{
+    margin:20px;
+
+}
+
+.m-auto{
+    margin:0 auto;
+
+}
+
+/* padding css */
+
+.pl20p{
+    padding-left:20%;
+
+}
+
+.pr20p{
+    padding-right:20%;
+
+}
+.pt50{
+    padding-top:50px;
+
+}
+
+.f-14{
+
+    font-size:14px;    
+}
