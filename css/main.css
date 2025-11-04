@@ -1,5 +1,7 @@
 .brand-logo {
-  height: 50px;
+  height: 60px;
+  border: 2px solid black;
+  border-radius: 4px;
   /* Add a smooth transition effect when it resizes */
   transition: height 0.2s ease-in-out; 
 }
