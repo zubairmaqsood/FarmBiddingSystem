@@ -1,43 +1,65 @@
-.navbar{
-    position: fixed;
-    display: flex;
-    align-items: center;
-    top: 0;
-    width: 100%;
-    border: 2px solid black;
+.brand-logo {
+  height: 50px;
+  /* Add a smooth transition effect when it resizes */
+  transition: height 0.2s ease-in-out; 
 }
 
-.logo{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 2%;
-    text-wrap: nowrap;
-    padding: 0 20px;
+/* 2. Set the default brand font size */
+.navbar-brand {
+  /* Add a smooth transition for font size */
+  transition: font-size 0.2s ease-in-out;
 }
 
-.logo img{
-    width: auto;
-    height: 70px;
+
+/* 3. This media query targets small phones (like Galaxy S8 and iPhone SE)
+     Screens 420px wide or less.
+*/
+@media (max-width: 420px) {
+
+  /* A. Shrink the logo image */
+  .brand-logo {
+    height: 35px; /* Make the logo smaller */
+  }
+
+  /* B. Shrink the text */
+  .navbar-brand {
+    font-size: 0.9rem; /* Make the font smaller (Bootstrap's default is 1.25rem) */
+  }
+
 }
 
-.lists{
-    width: 30%;
-}
-.lists ul{
-    display: flex;
-    gap: 5%;
-    list-style: none;
-    align-items: center;
-    justify-content: center;
-}
 
-.lists ul a{
-    color: black;
-    text-decoration: underline;
+/* Custom underline effect for navigation links */
+
+.nav-link-underline {
+  position: relative;        /* Crucial: Allows absolute positioning of the ::after pseudo-element relative to the link */
+  text-decoration: none;     /* Removes the default HTML underline */
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #333;               /* Default text color for your links (adjust as needed) */
+  /* Optional: Add a smooth transition for the text color if it changes on hover */
+  transition: color 0.3s ease-in-out;
 }
 
-.navButton{
-    padding: 0 20px;
+/* Create the custom underline using the ::after pseudo-element */
+.nav-link-underline::after {
+  content: '';               /* Required for pseudo-elements to display */
+  position: absolute;        /* Position the underline relative to its parent .nav-link-underline */
+  left: 0;                   /* Start the underline at the left edge of the link */
+  bottom: 0;                 /* Position the underline at the bottom of the link */
+  width: 0;                  /* Initial state: the underline has zero width (it's hidden) */
+  height: 2px;               /* The thickness of the underline */
+  background-color: red;     /* The color of the underline */
+  /* This is the magic: Animate the 'width' property over 0.3 seconds */
+  transition: width 0.3s ease-in-out; 
+}
 
+/* Define what happens when the link is hovered */
+.nav-link-underline:hover {
+  color: red; /* Optional: Change the text color on hover */
+}
+
+/* When the link is hovered, expand the underline to 100% width */
+.nav-link-underline:hover::after {
+  width: 100%;               /* The underline expands from left to right to cover the full width */
 }
