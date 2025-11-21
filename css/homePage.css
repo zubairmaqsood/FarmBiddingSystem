@@ -1,22 +1,22 @@
 :root {
-  --farm-primary: #2e7d32;       /* Forest Green (Main Brand) */
-  --farm-dark: #1b5e20;          /* Darker Green (Hover states) */
-  --farm-accent: #f57c00;        /* Harvest Orange (Buttons/Call to Action) */
-  --farm-bg: #f1f8e9;            /* Very light mint green (Page Background) */
-  --farm-text: #333333;          /* Dark Grey (Text) */
-  --farm-white: #ffffff;         /* Pure White (Cards) */
+  --farm-primary: #2e7d32; /* Forest Green (Main Brand) */
+  --farm-dark: #1b5e20; /* Darker Green (Hover states) */
+  --farm-accent: #f57c00; /* Harvest Orange (Buttons/Call to Action) */
+  --farm-bg: #f1f8e9; /* Very light mint green (Page Background) */
+  --farm-text: #333333; /* Dark Grey (Text) */
+  --farm-white: #ffffff; /* Pure White (Cards) */
 }
 
 body {
   overflow-x: hidden;
   background-color: var(--farm-bg); /* Sets the page background */
   color: var(--farm-text);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern Font */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Modern Font */
 }
 
-.nav{
+.nav {
   background-color: var(--farm-white) !important;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 .navbar-brand span {
@@ -93,22 +93,22 @@ h3 {
   background-color: var(--farm-white);
   border: none; /* Remove default gray border */
   border-radius: 12px; /* Soft rounded corners */
-  box-shadow: 0 4px 6px rgba(0,0,0,0.05); /* Soft shadow */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); /* Soft shadow */
   transition: transform 0.2s, box-shadow 0.2s;
-  overflow: hidden
+  overflow: hidden;
 }
 
 .custom-card:hover {
   transform: translateY(-5px); /* Lifts up slightly */
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* Shadow grows */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Shadow grows */
 }
 
 .card-body {
   padding: 1.2rem;
 }
 
-.cardTitle{
-  word-wrap: normal; 
+.cardTitle {
+  word-wrap: normal;
   word-break: normal;
   white-space: nowrap;
   overflow: hidden;
@@ -118,11 +118,10 @@ h3 {
   margin-bottom: 0.5rem;
 }
 
-.cardImg{
-  object-fit: cover; 
+.cardImg {
+  object-fit: cover;
   height: 180px;
 }
-
 
 .scrollContainer {
   scroll-behavior: smooth;
@@ -176,13 +175,42 @@ h3 {
   }
 
   .scrollButton {
-    display: none; 
+    display: none;
   }
-  
+
   .scrollContainer {
     overflow-x: auto;
-    -webkit-overflow-scrolling: touch; 
+    -webkit-overflow-scrolling: touch;
     scroll-snap-type: x mandatory;
+  }
+
+  .nav-link-underline {
+    width: fit-content;
+  }
+/* ... keep your existing card width settings ... */
+
+  /* TRANSFORM THE MENU INTO A FLOATING CARD */
+  .navContent {
+    position: absolute;      
+    top: 75px;               
+    right: 0;             
+    width: 85%;              
+    max-width: 320px;        
+    background-color: var(--farm-white); /* Use your white/theme color */
+    padding: 20px;        /* Round the corners */
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2); /* Add a strong shadow to make it pop */
+    z-index: 1050;        
+  }
+
+  /* Optional: Add a tiny arrow pointing up (Speech bubble effect) */
+  .navContent::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    right: 20px; /* Position under the hamburger button approx */
+    border-width: 0 10px 10px 10px;
+    border-style: solid;
+    border-color: transparent transparent var(--farm-white) transparent;
   }
 }
 
