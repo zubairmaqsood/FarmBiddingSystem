@@ -61,13 +61,64 @@
     <!-- Main Div -->
     <div class="d-flex flex-column gap-4 mt-2">
       <!-- Image Section -->
-      <div class="row">
-        <div class="col-8 m-auto text-center">
-          <img
-            src="img/hello.webp"
-            alt="crop image"
-            class="img-fluid w-75 border shadow rounded"
-          />
+      <div class="row mt-4">
+        <div class="col-8 m-auto">
+          <div
+            id="mainCarousel"
+            class="carousel slide w-75 mx-auto shadow rounded border overflow-hidden mainPicContainer"
+            data-bs-ride="carousel"
+          >
+            <div class="carousel-indicators">
+              <button
+                type="button"
+                data-bs-target="#mainCarousel"
+                data-bs-slide-to="0"
+                class="active"
+                aria-current="true"
+                aria-label="Slide 1"
+              ></button>
+
+              <button
+                type="button"
+                data-bs-target="#mainCarousel"
+                data-bs-slide-to="1"
+                aria-label="Slide 2"
+              ></button>
+
+              <button
+                type="button"
+                data-bs-target="#mainCarousel"
+                data-bs-slide-to="2"
+                aria-label="Slide 3"
+              ></button>
+            </div>
+
+            <div class="carousel-inner">
+              <div class="carousel-item active" data-bs-interval="3000">
+                <img
+                  src="img/hello.webp"
+                  class=" w-100 mainCarouselImg"
+                  alt="First slide"
+                />
+              </div>
+
+              <div class="carousel-item" data-bs-interval="3000">
+                <img
+                  src="img/tomato.webp"
+                  class=" w-100 mainCarouselImg"
+                  alt="Second slide"
+                />
+              </div>
+
+              <div class="carousel-item" data-bs-interval="3000">
+                <img
+                  src="img/onion.webp"
+                  class=" w-100 mainCarouselImg"
+                  alt="Third slide"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -89,7 +140,11 @@
           >
             <!-- Auction Item Card -->
             <div class="card custom-card">
-              <img src="img/tomato.webp" alt="tomatoPic" class="card-img-top cardImg" />
+              <img
+                src="img/tomato.webp"
+                alt="tomatoPic"
+                class="card-img-top cardImg"
+              />
               <div class="card-body d-flex flex-column cardBody">
                 <h4 class="card-title cardTitle">Organic Tomato</h4>
                 <p class="card-text">Time Remaining:</p>
@@ -101,7 +156,11 @@
             </div>
 
             <div class="card custom-card">
-              <img src="img/onion.webp" alt="onionPic" class="card-img-top cardImg" />
+              <img
+                src="img/onion.webp"
+                alt="onionPic"
+                class="card-img-top cardImg"
+              />
               <div class="card-body d-flex flex-column cardBody">
                 <h4 class="card-title cardTitle">Orgainc Onion</h4>
                 <p class="card-text">Time Remaining:</p>
@@ -113,7 +172,11 @@
             </div>
 
             <div class="card custom-card">
-              <img src="img/onion.webp" alt="onionPic" class="card-img-top cardImg" />
+              <img
+                src="img/onion.webp"
+                alt="onionPic"
+                class="card-img-top cardImg"
+              />
               <div class="card-body d-flex flex-column cardBody">
                 <h4 class="card-title cardTitle">Orgainc Onion</h4>
                 <p class="card-text">Time Remaining:</p>
@@ -125,7 +188,11 @@
             </div>
 
             <div class="card custom-card">
-              <img src="img/onion.webp" alt="onionPic" class="card-img-top cardImg" />
+              <img
+                src="img/onion.webp"
+                alt="onionPic"
+                class="card-img-top cardImg"
+              />
               <div class="card-body d-flex flex-column cardBody">
                 <h4 class="card-title cardTitle">Orgainc Onion</h4>
                 <p class="card-text">Time Remaining:</p>
@@ -137,7 +204,11 @@
             </div>
 
             <div class="card custom-card">
-              <img src="img/onion.webp" alt="onionPic" class="card-img-top cardImg" />
+              <img
+                src="img/onion.webp"
+                alt="onionPic"
+                class="card-img-top cardImg"
+              />
               <div class="card-body d-flex flex-column cardBody">
                 <h4 class="card-title cardTitle">Orgainc Onion</h4>
                 <p class="card-text">Time Remaining:</p>
@@ -147,9 +218,13 @@
                 </button>
               </div>
             </div>
-            
+
             <div class="card custom-card">
-              <img src="img/onion.webp" alt="onionPic" class="card-img-top cardImg" />
+              <img
+                src="img/onion.webp"
+                alt="onionPic"
+                class="card-img-top cardImg"
+              />
               <div class="card-body d-flex flex-column cardBody">
                 <h4 class="card-title cardTitle">Orgainc Onion</h4>
                 <p class="card-text">Time Remaining:</p>
@@ -159,7 +234,6 @@
                 </button>
               </div>
             </div>
-            
           </div>
 
           <button
@@ -189,7 +263,11 @@
           >
             <!-- Ending Item Card -->
             <div class="card custom-card">
-              <img src="img/tomato.webp" alt="tomatoPic" class="card-img-top cardImg" />
+              <img
+                src="img/tomato.webp"
+                alt="tomatoPic"
+                class="card-img-top cardImg"
+              />
               <div class="card-body d-flex flex-column cardBody">
                 <h4 class="card-title cardTitle">Organic Tomato</h4>
                 <p class="card-text">Time Remaining:</p>
@@ -200,8 +278,12 @@
               </div>
             </div>
 
-           <div class="card custom-card">
-              <img src="img/onion.webp" alt="onionPic" class="card-img-top cardImg" />
+            <div class="card custom-card">
+              <img
+                src="img/onion.webp"
+                alt="onionPic"
+                class="card-img-top cardImg"
+              />
               <div class="card-body d-flex flex-column cardBody">
                 <h4 class="card-title cardTitle">Orgainc Onion</h4>
                 <p class="card-text">Time Remaining:</p>
@@ -213,7 +295,11 @@
             </div>
 
             <div class="card custom-card">
-              <img src="img/onion.webp" alt="onionPic" class="card-img-top cardImg" />
+              <img
+                src="img/onion.webp"
+                alt="onionPic"
+                class="card-img-top cardImg"
+              />
               <div class="card-body d-flex flex-column cardBody">
                 <h4 class="card-title cardTitle">Orgainc Onion</h4>
                 <p class="card-text">Time Remaining:</p>
@@ -225,7 +311,11 @@
             </div>
 
             <div class="card custom-card">
-              <img src="img/onion.webp" alt="onionPic" class="card-img-top cardImg"/>
+              <img
+                src="img/onion.webp"
+                alt="onionPic"
+                class="card-img-top cardImg"
+              />
               <div class="card-body d-flex flex-column cardBody">
                 <h4 class="card-title cardTitle">Orgainc Onion</h4>
                 <p class="card-text">Time Remaining:</p>
@@ -237,7 +327,11 @@
             </div>
 
             <div class="card custom-card">
-              <img src="img/onion.webp" alt="onionPic" class="card-img-top cardImg" />
+              <img
+                src="img/onion.webp"
+                alt="onionPic"
+                class="card-img-top cardImg"
+              />
               <div class="card-body d-flex flex-column cardBody">
                 <h4 class="card-title cardTitle">Orgainc Onion</h4>
                 <p class="card-text">Time Remaining:</p>
@@ -248,8 +342,12 @@
               </div>
             </div>
 
-           <div class="card  custom-card">
-              <img src="img/onion.webp" alt="onionPic" class="card-img-top cardImg" />
+            <div class="card custom-card">
+              <img
+                src="img/onion.webp"
+                alt="onionPic"
+                class="card-img-top cardImg"
+              />
               <div class="card-body d-flex flex-column cardBody">
                 <h4 class="card-title cardTitle">Orgainc Onion</h4>
                 <p class="card-text">Time Remaining:</p>
@@ -258,8 +356,7 @@
                   Bid Now
                 </button>
               </div>
-            </div>  
-            
+            </div>
           </div>
 
           <button

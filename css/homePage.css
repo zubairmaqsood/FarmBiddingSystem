@@ -2,7 +2,7 @@
   --farm-primary: #2e7d32; /* Forest Green (Main Brand) */
   --farm-dark: #1b5e20; /* Darker Green (Hover states) */
   --farm-accent: #f57c00; /* Harvest Orange (Buttons/Call to Action) */
-  --farm-bg: #f1f8e9; /* Very light mint green (Page Background) */
+  --farm-bg: #d7f7b4; /* Very light mint green (Page Background) */
   --farm-text: #333333; /* Dark Grey (Text) */
   --farm-white: #ffffff; /* Pure White (Cards) */
 }
@@ -31,6 +31,41 @@ body {
   border-radius: 4px;
   /* Add a smooth transition effect when it resizes */
   transition: height 0.2s ease-in-out;
+}
+
+/* Ensure images inside the slider are consistent */
+.mainCarouselImg {
+  height: 200px; /* Set a fixed height so the page doesn't jump around */
+  object-fit: cover; /* Ensures images fill the space without stretching */
+}
+
+/* Add the transition to the container itself */
+.mainPicContainer {
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Hover effect on the whole slider container */
+.mainPicContainer:hover {
+  transform: scale(1.02); /* Slight zoom effect */
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2) !important; /* Make shadow bigger */
+}
+
+
+/* Style the individual buttons to look like Dots */
+.carousel-indicators button {
+  width: 12px !important;       /* Set width */
+  height: 12px !important;      /* Set height */
+  border-radius: 50%;           /* Make them perfectly round circles */
+  background-color: white !important; /* Default color (inactive) */
+  opacity: 0.5;                 /* Semi-transparent */
+  border: 2px solid transparent; /* Clean border */
+  transition: all 0.3s ease;    /* Smooth transition when changing */
+}
+
+/* Style the ACTIVE dot (The current slide) */
+.carousel-indicators .active {
+  opacity: 1;   /* Fully visible */
+  transform: scale(1.2); /* Make the active dot slightly bigger */
 }
 
 /* 2. Set the default brand font size */
@@ -121,6 +156,11 @@ h3 {
 .cardImg {
   object-fit: cover;
   height: 180px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.cardImg:hover{
+  transform: scale(1.1);
 }
 
 .scrollContainer {
