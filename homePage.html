@@ -10,13 +10,13 @@
   </head>
   <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-md bg-light sticky-top border-bottom nav">
+    <nav class="navbar navbar-expand-md  sticky-top border-bottom nav">
       <div class="container-fluid">
         <div class="navbar-brand">
           <img
-            src="img/navLogo.webp"
+            src="img/logo.webp"
             alt="logo"
-            class="d-inline-block brand-logo"
+            class=" brand-logo"
           />
           <span>Farm Bidding System</span>
         </div>
@@ -36,13 +36,13 @@
         <div class="collapse navbar-collapse navContent" id="navbarContent">
           <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link nav-link-underline me-3" href="#">Home</a>
+              <a class="nav-link nav-link-underline me-3" href="homePage.html">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link nav-link-underline me-3" href="#">About Us</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link nav-link-underline me-3" href="#">My Bid</a>
+              <a class="nav-link nav-link-underline me-3" href="biddingpage.html">My Bid</a>
             </li>
             <li class="nav-item">
               <a class="nav-link nav-link-underline me-3" href="#"
@@ -54,20 +54,24 @@
           <div class="d-flex">
             <button class="btn btn-outline-success">logout</button>
           </div>
+
         </div>
+
       </div>
+      
     </nav>
 
     <!-- Main Div -->
     <div class="d-flex flex-column gap-4 mt-2">
       <!-- Image Section -->
-      <div class="row mt-4">
+      <div class="row mt-3">
         <div class="col-8 m-auto">
           <div
             id="mainCarousel"
             class="carousel slide w-75 mx-auto shadow rounded border overflow-hidden mainPicContainer"
             data-bs-ride="carousel"
           >
+          <!-- Main pic indicator buttons -->
             <div class="carousel-indicators">
               <button
                 type="button"
@@ -91,12 +95,21 @@
                 data-bs-slide-to="2"
                 aria-label="Slide 3"
               ></button>
+
+              <button
+                type="button"
+                data-bs-target="#mainCarousel"
+                data-bs-slide-to="3"
+                aria-label="Slide 4"
+              ></button>
+
             </div>
 
+            <!-- Main Pics -->
             <div class="carousel-inner">
               <div class="carousel-item active" data-bs-interval="3000">
                 <img
-                  src="img/hello.webp"
+                  src="img/mainPic1.webp"
                   class=" w-100 mainCarouselImg"
                   alt="First slide"
                 />
@@ -104,7 +117,7 @@
 
               <div class="carousel-item" data-bs-interval="3000">
                 <img
-                  src="img/tomato.webp"
+                  src="img/mainPic2.webp"
                   class=" w-100 mainCarouselImg"
                   alt="Second slide"
                 />
@@ -112,11 +125,20 @@
 
               <div class="carousel-item" data-bs-interval="3000">
                 <img
-                  src="img/onion.webp"
+                  src="img/mainPic3.webp"
                   class=" w-100 mainCarouselImg"
                   alt="Third slide"
                 />
               </div>
+
+              <div class="carousel-item" data-bs-interval="3000">
+                <img
+                  src="img/mainPic4.webp"
+                  class=" w-100 mainCarouselImg"
+                  alt="Fourth slide"
+                />
+              </div>
+
             </div>
           </div>
         </div>
@@ -146,9 +168,11 @@
                 class="card-img-top cardImg"
               />
               <div class="card-body d-flex flex-column cardBody">
-                <h4 class="card-title cardTitle">Organic Tomato</h4>
-                <p class="card-text">Time Remaining:</p>
-                <p class="card-text">195s</p>
+                 <h4 class="card-title cardTitle">Organic Tomato</h4>
+                <h6 class=" fs-5 fw-bold cardLabel">Starting Price: 24$</h6>
+                <h6 class="fw-bold fs-5 cardLabel">Current Top Bid: 50$</h6>
+                <p class="card-text mb-0 fs-5 cardBid">📊 4 bids Placed</p>
+                <p class="card-text mb-2 fs-5 cardTime">⏰ Time Remaining: 5d</p>
                 <button class="btn btn-outline-success alig-self-end mt-auto">
                   Bid Now
                 </button>
@@ -162,9 +186,11 @@
                 class="card-img-top cardImg"
               />
               <div class="card-body d-flex flex-column cardBody">
-                <h4 class="card-title cardTitle">Orgainc Onion</h4>
-                <p class="card-text">Time Remaining:</p>
-                <p class="card-text">2d</p>
+                 <h4 class="card-title cardTitle">Organic Onion</h4>
+                <h6 class=" fs-5 fw-bold cardLabel">Starting Price: 234$</h6>
+                <h6 class="fw-bold fs-5 cardLabel">Current Top Bid: 500$</h6>
+                <p class="card-text mb-0 fs-5 cardBid">📊 43 bids Placed</p>
+                <p class="card-text mb-2 fs-5 cardTime">⏰ Time Remaining: 195s</p>
                 <button class="btn btn-outline-success alig-self-end mt-auto">
                   Bid Now
                 </button>
@@ -178,9 +204,11 @@
                 class="card-img-top cardImg"
               />
               <div class="card-body d-flex flex-column cardBody">
-                <h4 class="card-title cardTitle">Orgainc Onion</h4>
-                <p class="card-text">Time Remaining:</p>
-                <p class="card-text">2d</p>
+                 <h4 class="card-title cardTitle">Organic Onion</h4>
+                <h6 class=" fs-5 fw-bold cardLabel">Starting Price: 234$</h6>
+                <h6 class="fw-bold fs-5 cardLabel">Current Top Bid: 500$</h6>
+                <p class="card-text mb-0 fs-5 cardBid">📊 43 bids Placed</p>
+                <p class="card-text mb-2 fs-5 cardTime">⏰ Time Remaining: 195s</p>
                 <button class="btn btn-outline-success alig-self-end mt-auto">
                   Bid Now
                 </button>
@@ -194,9 +222,11 @@
                 class="card-img-top cardImg"
               />
               <div class="card-body d-flex flex-column cardBody">
-                <h4 class="card-title cardTitle">Orgainc Onion</h4>
-                <p class="card-text">Time Remaining:</p>
-                <p class="card-text">2d</p>
+                 <h4 class="card-title cardTitle">Organic Onion</h4>
+                <h6 class=" fs-5 fw-bold cardLabel">Starting Price: 234$</h6>
+                <h6 class="fw-bold fs-5 cardLabel">Current Top Bid: 500$</h6>
+                <p class="card-text mb-0 fs-5 cardBid">📊 43 bids Placed</p>
+                <p class="card-text mb-2 fs-5 cardTime">⏰ Time Remaining: 195s</p>
                 <button class="btn btn-outline-success alig-self-end mt-auto">
                   Bid Now
                 </button>
@@ -210,9 +240,11 @@
                 class="card-img-top cardImg"
               />
               <div class="card-body d-flex flex-column cardBody">
-                <h4 class="card-title cardTitle">Orgainc Onion</h4>
-                <p class="card-text">Time Remaining:</p>
-                <p class="card-text">2d</p>
+                 <h4 class="card-title cardTitle">Organic Onion</h4>
+                <h6 class=" fs-5 fw-bold cardLabel">Starting Price: 234$</h6>
+                <h6 class="fw-bold fs-5 cardLabel">Current Top Bid: 500$</h6>
+                <p class="card-text mb-0 fs-5 cardBid">📊 43 bids Placed</p>
+                <p class="card-text mb-2 fs-5 cardTime">⏰ Time Remaining: 195s</p>
                 <button class="btn btn-outline-success alig-self-end mt-auto">
                   Bid Now
                 </button>
@@ -226,9 +258,11 @@
                 class="card-img-top cardImg"
               />
               <div class="card-body d-flex flex-column cardBody">
-                <h4 class="card-title cardTitle">Orgainc Onion</h4>
-                <p class="card-text">Time Remaining:</p>
-                <p class="card-text">2d</p>
+                 <h4 class="card-title cardTitle">Organic Onion</h4>
+                <h6 class=" fs-5 fw-bold cardLabel">Starting Price: 234$</h6>
+                <h6 class="fw-bold fs-5 cardLabel">Current Top Bid: 500$</h6>
+                <p class="card-text mb-0 fs-5 cardBid">📊 43 bids Placed</p>
+                <p class="card-text mb-2 fs-5 cardTime">⏰ Time Remaining: 195s</p>
                 <button class="btn btn-outline-success alig-self-end mt-auto">
                   Bid Now
                 </button>
@@ -270,8 +304,10 @@
               />
               <div class="card-body d-flex flex-column cardBody">
                 <h4 class="card-title cardTitle">Organic Tomato</h4>
-                <p class="card-text">Time Remaining:</p>
-                <p class="card-text">195s</p>
+                <h6 class=" fs-5 fw-bold cardLabel">Starting Price: 134$</h6>
+                <h6 class="fw-bold fs-5 cardLabel">Current Top Bid: 600$</h6>
+                <p class="card-text mb-0 fs-5 cardBid">📊 20 bids Placed</p>
+                <p class="card-text mb-2 fs-5 cardTime">⏰ Time Remaining: 2d</p>
                 <button class="btn btn-outline-success alig-self-end mt-auto">
                   Bid Now
                 </button>
@@ -285,9 +321,11 @@
                 class="card-img-top cardImg"
               />
               <div class="card-body d-flex flex-column cardBody">
-                <h4 class="card-title cardTitle">Orgainc Onion</h4>
-                <p class="card-text">Time Remaining:</p>
-                <p class="card-text">2d</p>
+                <h4 class="card-title cardTitle">Organic Onion</h4>
+                <h6 class=" fs-5 fw-bold cardLabel">Starting Price: 234$</h6>
+                <h6 class="fw-bold fs-5 cardLabel">Current Top Bid: 500$</h6>
+                <p class="card-text mb-0 fs-5 cardBid">📊 43 bids Placed</p>
+                <p class="card-text mb-2 fs-5 cardTime">⏰ Time Remaining: 195s</p>
                 <button class="btn btn-outline-success alig-self-end mt-auto">
                   Bid Now
                 </button>
@@ -301,9 +339,11 @@
                 class="card-img-top cardImg"
               />
               <div class="card-body d-flex flex-column cardBody">
-                <h4 class="card-title cardTitle">Orgainc Onion</h4>
-                <p class="card-text">Time Remaining:</p>
-                <p class="card-text">2d</p>
+                 <h4 class="card-title cardTitle">Organic Onion</h4>
+                <h6 class=" fs-5 fw-bold cardLabel">Starting Price: 234$</h6>
+                <h6 class="fw-bold fs-5 cardLabel">Current Top Bid: 500$</h6>
+                <p class="card-text mb-0 fs-5 cardBid">📊 43 bids Placed</p>
+                <p class="card-text mb-2 fs-5 cardTime">⏰ Time Remaining: 195s</p>
                 <button class="btn btn-outline-success alig-self-end mt-auto">
                   Bid Now
                 </button>
@@ -317,9 +357,11 @@
                 class="card-img-top cardImg"
               />
               <div class="card-body d-flex flex-column cardBody">
-                <h4 class="card-title cardTitle">Orgainc Onion</h4>
-                <p class="card-text">Time Remaining:</p>
-                <p class="card-text">2d</p>
+                 <h4 class="card-title cardTitle">Organic Onion</h4>
+                <h6 class=" fs-5 fw-bold cardLabel">Starting Price: 234$</h6>
+                <h6 class="fw-bold fs-5 cardLabel">Current Top Bid: 500$</h6>
+                <p class="card-text mb-0 fs-5 cardBid">📊 43 bids Placed</p>
+                <p class="card-text mb-2 fs-5 cardTime">⏰ Time Remaining: 195s</p>
                 <button class="btn btn-outline-success alig-self-end mt-auto">
                   Bid Now
                 </button>
@@ -333,9 +375,11 @@
                 class="card-img-top cardImg"
               />
               <div class="card-body d-flex flex-column cardBody">
-                <h4 class="card-title cardTitle">Orgainc Onion</h4>
-                <p class="card-text">Time Remaining:</p>
-                <p class="card-text">2d</p>
+                 <h4 class="card-title cardTitle">Organic Onion</h4>
+                <h6 class=" fs-5 fw-bold cardLabel">Starting Price: 234$</h6>
+                <h6 class="fw-bold fs-5 cardLabel">Current Top Bid: 500$</h6>
+                <p class="card-text mb-0 fs-5 cardBid">📊 43 bids Placed</p>
+                <p class="card-text mb-2 fs-5 cardTime">⏰ Time Remaining: 195s</p>
                 <button class="btn btn-outline-success alig-self-end mt-auto">
                   Bid Now
                 </button>
@@ -349,9 +393,11 @@
                 class="card-img-top cardImg"
               />
               <div class="card-body d-flex flex-column cardBody">
-                <h4 class="card-title cardTitle">Orgainc Onion</h4>
-                <p class="card-text">Time Remaining:</p>
-                <p class="card-text">2d</p>
+                 <h4 class="card-title cardTitle">Organic Onion</h4>
+                <h6 class=" fs-5 fw-bold cardLabel">Starting Price: 234$</h6>
+                <h6 class="fw-bold fs-5 cardLabel">Current Top Bid: 500$</h6>
+                <p class="card-text mb-0 fs-5 cardBid">📊 43 bids Placed</p>
+                <p class="card-text mb-2 fs-5 cardTime">⏰ Time Remaining: 195s</p>
                 <button class="btn btn-outline-success alig-self-end mt-auto">
                   Bid Now
                 </button>

@@ -2,7 +2,7 @@
   --farm-primary: #2e7d32; /* Forest Green (Main Brand) */
   --farm-dark: #1b5e20; /* Darker Green (Hover states) */
   --farm-accent: #f57c00; /* Harvest Orange (Buttons/Call to Action) */
-  --farm-bg: #d7f7b4; /* Very light mint green (Page Background) */
+  --farm-bg: #d3e8bd; /* Very light mint green (Page Background) */
   --farm-text: #333333; /* Dark Grey (Text) */
   --farm-white: #ffffff; /* Pure White (Cards) */
 }
@@ -11,11 +11,11 @@ body {
   overflow-x: hidden;
   background-color: var(--farm-bg); /* Sets the page background */
   color: var(--farm-text);
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Modern Font */
+  font-family: sans-serif; /* Modern Font */
 }
 
 .nav {
-  background-color: var(--farm-white) !important;
+  background-color: #EFF2E9;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
@@ -28,7 +28,7 @@ body {
 .brand-logo {
   height: 60px;
   border: 2px solid black;
-  border-radius: 4px;
+  border-radius: 30px;
   /* Add a smooth transition effect when it resizes */
   transition: height 0.2s ease-in-out;
 }
@@ -123,6 +123,7 @@ h3 {
   flex: 0 0 auto;
   min-width: 250px;
   width: calc(25% - 24px);
+  height: auto;
   max-width: 350px;
   scroll-snap-align: start;
   background-color: var(--farm-white);
@@ -138,19 +139,13 @@ h3 {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Shadow grows */
 }
 
-.card-body {
+.cardBody {
   padding: 1.2rem;
 }
 
 .cardTitle {
-  word-wrap: normal;
-  word-break: normal;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
   color: var(--farm-dark);
-  font-weight: 700;
-  margin-bottom: 0.5rem;
+  font-weight: 800;
 }
 
 .cardImg {
@@ -161,6 +156,18 @@ h3 {
 
 .cardImg:hover{
   transform: scale(1.1);
+}
+
+.cardLabel{
+  color: #6c757d;;
+}
+
+.cardBid{
+  color: #2e7d32;
+}
+
+.cardTime{
+  color: red;
 }
 
 .scrollContainer {
@@ -174,8 +181,8 @@ h3 {
 
 .scrollButton {
   position: absolute;
-  top: 50%; /* Center vertically */
-  transform: translateY(-50%); /* Perfect vertical centering */
+  top: 40%; /* Center vertically */
+  transform: translateY(-60%); /* Perfect vertical centering */
   z-index: 10; /* Put on top of images */
   width: 40px;
   height: 40px;
@@ -209,7 +216,7 @@ h3 {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .custom-card {
     width: calc(33.333% - 24px);
   }
@@ -252,6 +259,10 @@ h3 {
     border-style: solid;
     border-color: transparent transparent var(--farm-white) transparent;
   }
+}
+
+@media (min-width:768px) and (max-width:792px){
+  .nav
 }
 
 @media (max-width: 667px) {
