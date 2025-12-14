@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Farm Auction Market - Browse Auctions</title>
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+	<!-- Core CSS -->
+	<link rel="stylesheet" href="../css/core/root.css" />
+	<link rel="stylesheet" href="../css/core/default.css" />
+
+	<!-- Components CSS -->
+	<link rel="stylesheet" href="../css/components/header.css" />
+	<link rel="stylesheet" href="../css/components/footer.css" />
+
+	<!-- Page-Specific CSS -->
+	<link rel="stylesheet" href="../css/pages/biddingpage.css" />
+</head>
+
+<body>
+	<!-- Header placeholder -->
+	<div id="header-placeholder"></div>
+
+	<!-- Main Content -->
+	<div class="container mt-4">
+		<!-- Main Auction List Page -->
+		<div id="mainPage">
+			<!-- Page Header -->
+			<div class="page-header">
+				<h1><i class="fas fa-gavel"></i> Live Auctions</h1>
+				<p>Browse and bid on premium farm equipment</p>
+			</div>
+
+			<!-- Search Bar -->
+			<div class="search-container">
+				<input type="text" class="search-bar" id="searchInput"
+					placeholder="🔍 Search for tractors, harvesters, equipment..." onkeyup="searchItems()" />
+			</div>
+
+			<!-- Auction Grid -->
+			<div class="auction-grid" id="auctionGrid">
+				<!-- Auction cards will be dynamically loaded here -->
+			</div>
+
+			<!-- No Results Message -->
+			<div class="no-results" id="noResults" style="display: none;">
+				<i class="fas fa-search fa-3x mb-3"></i>
+				<p>No auctions found matching your search</p>
+			</div>
+		</div>
+
+		<!-- Detail Page -->
+		<div id="detailPage" class="detail-page">
+			<!-- Detail content will be dynamically loaded here -->
+		</div>
+	</div>
+
+	<!-- Quick Bid Modal -->
+	<div id="bidModal" class="modal">
+		<div class="modal-content">
+			<button class="close-modal" onclick="closeBidModal()">&times;</button>
+			<h2 id="bidItemName">Place Your Bid</h2>
+			<div class="form-group">
+				<label>Current Bid: <strong id="bidCurrentPrice">$0</strong></label>
+			</div>
+			<div class="form-group">
+				<label>Your Bid Amount</label>
+				<input type="number" id="bidAmount" placeholder="Enter your bid amount" min="0" step="100" />
+				<div class="bid-range-info" id="quickBidRange">
+					Minimum bid increment: $100
+				</div>
+			</div>
+			<button class="btn btn-bid" onclick="placeBid()" style="width: 100%">
+				<i class="fas fa-gavel"></i> Place Bid
+			</button>
+		</div>
+	</div>
+
+    <!-- Footer placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts - CORRECT ORDER -->
+    <!-- 1. Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- 2. Font Awesome -->
+    <script src="https://kit.fontawesome.com/a2e0e6ad65.js" crossorigin="anonymous"></script>
+
+    <!-- 3. Authentication System -->
+    <script src="../js/auth.js"></script>
+
+    <!-- 4. Load Components (Header/Footer) -->
+    <script src="../js/loadComponents.js"></script>
+
+    <!-- 5. Page-Specific Script -->
+    <script src="../js/bidding.js"></script>
+</body>
+
+</html>

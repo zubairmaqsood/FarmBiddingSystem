@@ -1,0 +1,153 @@
+<div class="auth-page">
+    <!-- Background Decoration -->
+    <div class="auth-background">
+        <div class="auth-shape shape-1"></div>
+        <div class="auth-shape shape-2"></div>
+        <div class="auth-shape shape-3"></div>
+    </div>
+
+    <!-- Signup Container -->
+    <div class="auth-container">
+        <!-- Logo Section -->
+        <div class="auth-logo-section">
+            <a href="../homePage.html" class="back-home">
+                <i class="fas fa-arrow-left"></i> Back to Home
+            </a>
+            <img src="../img/logo.webp" alt="Farm Bidding Logo" class="auth-logo">
+            <h1 class="auth-brand-name">Farm Bidding System</h1>
+            <p class="auth-tagline">Create your account to start bidding</p>
+        </div>
+
+        <!-- Signup Form -->
+        <div class="auth-form-card">
+            <h2 class="auth-form-title">Create Your Account</h2>
+
+            <!-- Alert Messages -->
+            <div id="errorMessage" class="auth-alert auth-alert-error"></div>
+            <div id="successMessage" class="auth-alert auth-alert-success"></div>
+
+            <form id="signupForm" class="auth-form">
+                <!-- Full Name Input -->
+                <div class="auth-form-group">
+                    <label for="fullName" class="auth-label">
+                        <i class="fas fa-user"></i> Full Name
+                    </label>
+                    <input type="text" id="fullName" name="fullName" class="auth-input"
+                        placeholder="Enter your full name" required>
+                </div>
+
+                <!-- Email Input -->
+                <div class="auth-form-group">
+                    <label for="email" class="auth-label">
+                        <i class="fas fa-envelope"></i> Email Address
+                    </label>
+                    <input type="email" id="email" name="email" class="auth-input" placeholder="Enter your email"
+                        required>
+                </div>
+
+                <!-- Phone Input -->
+                <div class="auth-form-group">
+                    <label for="phone" class="auth-label">
+                        <i class="fas fa-phone"></i> Phone Number
+                    </label>
+                    <input type="tel" id="phone" name="phone" class="auth-input" placeholder="Enter your phone number"
+                        required>
+                </div>
+
+                <!-- Password Input -->
+                <div class="auth-form-group">
+                    <label for="password" class="auth-label">
+                        <i class="fas fa-lock"></i> Password
+                    </label>
+                    <div class="auth-input-wrapper">
+                        <input type="password" id="password" name="password" class="auth-input"
+                            placeholder="Create a password" required>
+                        <button type="button" class="password-toggle" id="togglePassword">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <div class="password-strength">
+                        <div class="strength-bar">
+                            <div class="strength-fill" id="strengthFill"></div>
+                        </div>
+                        <span class="strength-text" id="strengthText">Password strength</span>
+                    </div>
+                </div>
+
+                <!-- Confirm Password Input -->
+                <div class="auth-form-group">
+                    <label for="confirmPassword" class="auth-label">
+                        <i class="fas fa-lock"></i> Confirm Password
+                    </label>
+                    <div class="auth-input-wrapper">
+                        <input type="password" id="confirmPassword" name="confirmPassword" class="auth-input"
+                            placeholder="Re-enter your password" required>
+                        <button type="button" class="password-toggle" id="toggleConfirmPassword">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- User Type Selection -->
+                <div class="auth-form-group">
+                    <label class="auth-label">
+                        <i class="fas fa-user-tag"></i> I want to
+                    </label>
+                    <div class="user-type-selection">
+                        <label class="user-type-card">
+                            <input type="radio" name="userType" value="buyer" checked>
+                            <div class="card-content">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span>Buy Equipment</span>
+                            </div>
+                        </label>
+                        <label class="user-type-card">
+                            <input type="radio" name="userType" value="seller">
+                            <div class="card-content">
+                                <i class="fas fa-store"></i>
+                                <span>Sell Equipment</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Terms & Conditions -->
+                <div class="auth-form-group">
+                    <label class="auth-checkbox">
+                        <input type="checkbox" id="agreeTerms" name="agreeTerms" required>
+                        <span>I agree to the <a href="#" class="auth-link">Terms & Conditions</a> and <a href="#"
+                                class="auth-link">Privacy Policy</a></span>
+                    </label>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="auth-btn auth-btn-primary" id="signupBtn">
+                    <span class="btn-text">Create Account</span>
+                    <span class="btn-loader"></span>
+                </button>
+            </form>
+
+            <!-- Divider -->
+            <div class="auth-divider">
+                <span>OR</span>
+            </div>
+
+            <!-- Social Login -->
+            <div class="social-login">
+                <button class="social-btn social-btn-google">
+                    <i class="fab fa-google"></i>
+                    Sign up with Google
+                </button>
+                <button class="social-btn social-btn-facebook">
+                    <i class="fab fa-facebook-f"></i>
+                    Sign up with Facebook
+                </button>
+            </div>
+
+            <!-- Login Link -->
+            <div class="auth-footer">
+                <p>Already have an account? <a href="login.html" class="auth-link-primary">Login</a></p>
+            </div>
+        </div>
+    </div>
+</div>
