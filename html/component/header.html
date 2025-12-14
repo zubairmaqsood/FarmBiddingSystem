@@ -1,0 +1,299 @@
+<!-- Top Bar -->
+<div class="top-bar py-2">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-6 d-flex gap-3">
+        <select class="form-select form-select-sm border-0 bg-transparent w-auto">
+          <option selected>USD ($)</option>
+          <option>EUR (€)</option>
+          <option>GBP (£)</option>
+          <option>CAD ($)</option>
+        </select>
+        <select class="form-select form-select-sm border-0 bg-transparent w-auto">
+          <option selected>🇺🇸 English</option>
+          <option>🇪🇸 Español</option>
+          <option>🇫🇷 Français</option>
+          <option>🇩🇪 Deutsch</option>
+        </select>
+      </div>
+      <div class="col-md-6 text-end d-none d-md-block">
+        <a href="#" class="text-decoration-none me-3"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#" class="text-decoration-none me-3"><i class="fa-brands fa-twitter"></i></a>
+        <a href="#" class="text-decoration-none me-3"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" class="text-decoration-none"><i class="fa-regular fa-circle-question me-1"></i>Help</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Main Header -->
+<header class="main-header">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-12 col-md-4 col-6 navbar-brand">
+        <a href="../homePage.html" class="d-flex align-items-center text-decoration-none">
+          <img src="../img/logo.webp" class="brand-logo me-2" alt="logo" />
+          <span class="fw-bold fs-5">Farm Bidding System</span>
+        </a>
+      </div>
+
+      <!-- Search Box -->
+      <div class="col-lg-9 col-md-9 col-6">
+        <div class="search-input-wrapper w-100">
+          <i class="fas fa-search search-icon"></i>
+          <input type="text" id="searchBox" class="search-input w-50"
+            placeholder="Search tractors, equipment, auctions, or companies..." autocomplete="off" />
+          <button class="search-btn">Search</button>
+        </div>
+        <div id="suggestions" class="search-suggestions"></div>
+      </div>
+
+      <div class="col-lg-3 col-md-3 col-6">
+        <div class="d-flex align-items-center justify-content-end gap-2">
+          <button class="icon-btn" title="Notifications">
+            <i class="fas fa-bell"></i>
+            <span class="badge-notification">3</span>
+          </button>
+          <button class="icon-btn" title="Messages">
+            <i class="fas fa-envelope"></i>
+            <span class="badge-notification">5</span>
+          </button>
+          <button class="icon-btn" title="Watchlist">
+            <i class="fas fa-heart"></i>
+          </button>
+          <button class="icon-btn" title="Toggle Theme">
+            <i class="fas fa-moon"></i>
+          </button>
+
+          <div class="dropdown">
+            <button class="btn p-0 border-0" data-bs-toggle="dropdown">
+              <img src="https://ui-avatars.com/api/?name=John+Farmer&background=52b788&color=fff" alt="User"
+                class="user-avatar" />
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end" style="min-width: 250px">
+              <li class="px-3 py-2 border-bottom">
+                <div class="fw-bold">John Farmer</div>
+                <small class="text-muted">john@example.com</small>
+                <div class="mt-2">
+                  <span class="user-badge">Buyer</span>
+                </div>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i>My Profile</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#"><i class="fas fa-gavel me-2"></i>My Bids</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#"><i class="fas fa-heart me-2"></i>Watchlist</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i>Settings</a>
+              </li>
+              <li>
+                <hr class="dropdown-divider" />
+              </li>
+              <li>
+                <a class="dropdown-item text-danger" href="#"><i class="fas fa-sign-out-alt me-2"></i>Logout</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Search -->
+    <div class="row d-md-none mt-3">
+      <div class="col-12">
+        <div class="search-wrapper position-relative">
+          <i class="fas fa-search search-icon"></i>
+          <input type="text" class="search-input" placeholder="Search..." />
+          <button class="search-btn">Search</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Main Navigation -->
+<nav class="navbar navbar-expand-lg main-nav sticky-top">
+  <div class="container">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item nav-link-underline">
+          <a class="nav-link active" href="../homePage.html">
+            <i class="fas fa-home me-1"></i> Home
+          </a>
+        </li>
+
+        <li class="nav-item nav-link-underline dropdown position-static">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+            <i class="fas fa-th me-1"></i> Categories
+          </a>
+          <div class="dropdown-menu mega-menu">
+            <div class="row">
+              <div class="col-md-3">
+                <h6><i class="fas fa-clock me-2"></i>Auctions</h6>
+                <a class="dropdown-item" href="#"><i class="fas fa-fire text-danger me-2"></i>Closing Soon</a>
+                <a class="dropdown-item" href="#"><i class="fas fa-calendar-day me-2"></i>Today's Events</a>
+                <a class="dropdown-item" href="#"><i class="fas fa-plus-circle me-2"></i>New Auctions</a>
+              </div>
+              <div class="col-md-3">
+                <h6><i class="fas fa-star me-2"></i>Popular</h6>
+                <a class="dropdown-item" href="#"><i class="fas fa-fire me-2"></i>Hot Auctions</a>
+                <a class="dropdown-item" href="#"><i class="fas fa-crown me-2"></i>Featured Lots</a>
+                <a class="dropdown-item" href="#"><i class="fas fa-trophy me-2"></i>Most Bids</a>
+              </div>
+              <div class="col-md-3">
+                <h6><i class="fas fa-tractor me-2"></i>Equipment</h6>
+                <a class="dropdown-item" href="#">Tractors</a>
+                <a class="dropdown-item" href="#">Harvesters</a>
+                <a class="dropdown-item" href="#">Plows & Tillers</a>
+              </div>
+              <div class="col-md-3">
+                <h6><i class="fas fa-seedling me-2"></i>More</h6>
+                <a class="dropdown-item" href="#">Livestock Equipment</a>
+                <a class="dropdown-item" href="#">Crop Protection</a>
+                <a class="dropdown-item" href="#">Storage & Handling</a>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item nav-link-underline dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+            <i class="fas fa-gavel me-1"></i> Auctions
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item" href="#"><i class="fas fa-map-marker-alt me-2"></i>Near Me</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="#"><i class="fas fa-globe me-2"></i>By Location</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="#"><i class="fas fa-video me-2"></i>Online Only</a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item nav-link-underline">
+          <a class="nav-link" href="../html/biddingpage.html">
+            <i class="fas fa-hand-holding-usd me-1"></i> My Bids
+          </a>
+        </li>
+
+        <li class="nav-item nav-link-underline">
+          <a class="nav-link" href="../html/companies.html">
+            <i class="fas fa-building me-1"></i> Companies
+          </a>
+        </li>
+
+        <li class="nav-item nav-link-underline">
+          <a class="nav-link" href="../html/watchlist.html">
+            <i class="fas fa-eye me-1"></i> Watchlist
+          </a>
+        </li>
+
+        <li class="nav-item nav-link-underline">
+          <a class="nav-link" href="/html/sell.html">
+            <i class="fas fa-tag me-1"></i> Sell
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- LOGIN MODAL OVERLAY -->
+<div id="loginModal" class="login-modal">
+    <div class="login-modal-overlay"></div>
+    
+    <div class="login-modal-container">
+        <!-- Close Button -->
+        <button class="login-modal-close" onclick="closeLoginModal()">
+            <i class="fas fa-times"></i>
+        </button>
+
+        <!-- Login Content -->
+        <div class="login-modal-content">
+            <!-- Logo Section -->
+            <div class="login-header">
+                <img src="../img/logo.webp" alt="Farm Bidding Logo" class="login-logo">
+                <h2 class="login-title">Welcome Back!</h2>
+                <p class="login-subtitle">Login to continue bidding</p>
+            </div>
+
+            <!-- Alert Messages -->
+            <div id="loginErrorMessage" class="auth-alert auth-alert-error"></div>
+            <div id="loginSuccessMessage" class="auth-alert auth-alert-success"></div>
+
+            <!-- Login Form -->
+            <form id="loginForm" class="login-form">
+                <!-- Email Input -->
+                <div class="login-form-group">
+                    <label for="loginEmail" class="login-label">
+                        <i class="fas fa-envelope"></i> Email Address
+                    </label>
+                    <input type="email" id="loginEmail" name="email" class="login-input" 
+                        placeholder="Enter your email" required>
+                </div>
+
+                <!-- Password Input -->
+                <div class="login-form-group">
+                    <label for="loginPassword" class="login-label">
+                        <i class="fas fa-lock"></i> Password
+                    </label>
+                    <div class="login-input-wrapper">
+                        <input type="password" id="loginPassword" name="password" class="login-input"
+                            placeholder="Enter your password" required>
+                        <button type="button" class="password-toggle">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Remember Me & Forgot Password -->
+                <div class="login-options">
+                    <label class="login-checkbox">
+                        <input type="checkbox" id="loginRememberMe" name="rememberMe">
+                        <span>Remember me</span>
+                    </label>
+                    <a href="#" class="login-link">Forgot Password?</a>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="login-btn login-btn-primary" id="loginSubmitBtn">
+                    <span class="btn-text">Login</span>
+                    <span class="btn-loader"></span>
+                </button>
+            </form>
+
+            <!-- Divider -->
+            <div class="login-divider">
+                <span>OR</span>
+            </div>
+
+            <!-- Social Login -->
+            <div class="login-social">
+                <button class="social-btn social-btn-google" type="button">
+                    <i class="fab fa-google"></i>
+                    Continue with Google
+                </button>
+                <button class="social-btn social-btn-facebook" type="button">
+                    <i class="fab fa-facebook-f"></i>
+                    Continue with Facebook
+                </button>
+            </div>
+
+            <!-- Sign Up Link -->
+            <div class="login-footer">
+                <p>Don't have an account? <a href="#" onclick="openSignupModal(); return false;" class="login-link-primary">Sign Up</a></p>
+            </div>
+        </div>
+    </div>
+</div>

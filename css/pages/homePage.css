@@ -1,0 +1,177 @@
+/* ============================================
+   HOMEPAGE SPECIFIC STYLES
+   ============================================ */
+
+/* ============================================
+   MAIN CAROUSEL / HERO SECTION
+   ============================================ */
+
+.mainCarouselImg {
+  height: 200px;
+  object-fit: cover;
+}
+
+.mainPicContainer {
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.mainPicContainer:hover {
+  transform: scale(1.02);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Carousel Indicators (Dots) */
+.carousel-indicators button {
+  width: 12px !important;
+  height: 12px !important;
+  border-radius: var(--radius-full);
+  background-color: white !important;
+  opacity: 0.5;
+  border: 2px solid transparent;
+  transition: all var(--transition-normal);
+}
+
+.carousel-indicators .active {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+/* ============================================
+   SECTION HEADINGS
+   ============================================ */
+
+h3 {
+  color: var(--farm-dark);
+  font-weight: 800;
+  margin-bottom: 20px;
+  border-left: 5px solid var(--farm-accent);
+  padding-left: 15px;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+}
+
+/* ============================================
+   PRODUCT CARDS
+   ============================================ */
+
+.custom-card {
+  flex: 0 0 auto;
+  min-width: 250px;
+  width: calc(25% - 24px);
+  height: auto;
+  max-width: 350px;
+  scroll-snap-align: start;
+  background-color: var(--farm-white);
+  border: none;
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  overflow: hidden;
+}
+
+.custom-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.cardBody {
+  padding: 1.2rem;
+}
+
+.cardTitle {
+  color: var(--farm-dark);
+  font-weight: 800;
+}
+
+.cardImg {
+  object-fit: cover;
+  height: 180px;
+  transition: transform var(--transition-normal);
+}
+
+.cardImg:hover {
+  transform: scale(1.1);
+}
+
+.cardLabel {
+  color: var(--gray-400);
+}
+
+.cardBid {
+  color: var(--farm-primary);
+}
+
+.cardTime {
+  color: var(--color-danger);
+}
+
+/* ============================================
+   HORIZONTAL SCROLL CONTAINER
+   ============================================ */
+
+.scrollContainer {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+.scrollContainer::-webkit-scrollbar {
+  display: none;
+}
+
+/* Scroll Navigation Buttons */
+.scrollButton {
+  position: absolute;
+  top: 40%;
+  transform: translateY(-60%);
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  background-color: black;
+  color: white;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.scrollButton:hover {
+  background-color: var(--farm-dark);
+  transform: translateY(-60%) scale(1.1);
+}
+
+.right-btn {
+  right: 10px;
+}
+
+.left-btn {
+  left: 10px;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN - MOBILE
+   ============================================ */
+
+/* Small Mobile Phones */
+@media (max-width: 667px) {
+  .custom-card {
+    width: calc(50% - 24px);
+  }
+}
+
+/* Tablets and Mobile */
+@media (max-width: 767px) {
+  .custom-card {
+    width: calc(33.333% - 24px);
+  }
+
+  .scrollButton {
+    display: none;
+  }
+
+  .scrollContainer {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+  }
+}

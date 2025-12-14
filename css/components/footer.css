@@ -1,0 +1,170 @@
+/* ============================================
+   FOOTER COMPONENT STYLES
+   ============================================ */
+
+footer {
+  background: linear-gradient(135deg, #2c5f2d 0%, #1a3a1b 100%);
+  color: #ffffff;
+  padding-top: 60px;
+}
+
+/* ============================================
+   FOOTER LOGO
+   ============================================ */
+
+.footer-logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--light-green);
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-logo i {
+  font-size: 2rem;
+}
+
+/* ============================================
+   FOOTER SECTIONS
+   ============================================ */
+
+footer h5 {
+  color: var(--light-green);
+  font-weight: 600;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+footer a {
+  color: #d4e8d4;
+  text-decoration: none;
+  display: block;
+  padding: 5px 0;
+  transition: all var(--transition-normal);
+}
+
+footer a:hover {
+  color: var(--light-green);
+  padding-left: 5px;
+}
+
+.footer-col {
+  margin-bottom: 30px;
+}
+
+/* ============================================
+   SOCIAL LINKS
+   ============================================ */
+
+.social-links a {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-full);
+  text-align: center;
+  line-height: 40px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  transition: all var(--transition-normal);
+}
+
+.social-links a:hover {
+  background: var(--light-green);
+  color: #1a3a1b;
+  transform: translateY(-3px);
+  padding-left: 0;
+}
+
+/* ============================================
+   SUBSCRIBE FORM
+   ============================================ */
+
+.subscribe-form {
+  margin-top: 15px;
+}
+
+.subscribe-form .input-group {
+  max-width: 350px;
+}
+
+.subscribe-form input {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  padding: 10px 15px;
+}
+
+.subscribe-form input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.subscribe-form input:focus {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: var(--light-green);
+  color: #ffffff;
+  box-shadow: none;
+}
+
+.subscribe-form button {
+  background: var(--light-green);
+  border: none;
+  color: #1a3a1b;
+  font-weight: 600;
+  padding: 10px 25px;
+  transition: all var(--transition-normal);
+}
+
+.subscribe-form button:hover {
+  background: #68b068;
+}
+
+/* ============================================
+   FOOTER BOTTOM
+   ============================================ */
+
+.footer-bottom {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 20px 0;
+  margin-top: 50px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.copyright {
+  color: #d4e8d4;
+  margin: 0;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 767px) {
+  .footer-logo {
+    justify-content: center;
+  }
+  
+  footer h5 {
+    text-align: center;
+  }
+  
+  footer a {
+    text-align: center;
+  }
+  
+  .social-links {
+    text-align: center;
+  }
+  
+  .subscribe-form .input-group {
+    margin: 0 auto;
+  }
+  
+  .copyright {
+    text-align: center;
+  }
+}

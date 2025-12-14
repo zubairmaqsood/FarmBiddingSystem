@@ -1,0 +1,97 @@
+/* ============================================
+   ROOT VARIABLES - Project-Specific Theme
+   ============================================ */
+
+:root {
+  /* Primary Color Palette */
+  --farm-primary: #2e7d32;        /* Forest Green (Main Brand) */
+  --farm-dark: #1b5e20;           /* Darker Green (Hover states) */
+  --farm-accent: #f57c00;         /* Harvest Orange (Buttons/CTA) */
+  --farm-bg: #d3e8bd;             /* Very light mint green (Page Background) */
+  --farm-text: #333333;           /* Dark Grey (Text) */
+  --farm-white: #ffffff;          /* Pure White (Cards) */
+  
+  /* Extended Color System */
+  --primary-green: #2c5f2d;
+  --light-green: #7fc97f;
+  --dark-green: #1a3a1b;
+  
+  /* Semantic Colors */
+  --color-success: #2e7d32;
+  --color-warning: #f57c00;
+  --color-danger: #dc3545;
+  --color-info: #7fc97f;
+  
+  /* Neutral Palette */
+  --gray-50: #f8f9fa;
+  --gray-100: #f8f9fa;
+  --gray-200: #e9ecef;
+  --gray-300: #dee2e6;
+  --gray-400: #6c757d;
+  --gray-500: #495057;
+  --gray-600: #333333;
+  --gray-700: #2d2d2d;
+  --gray-800: #1a1a1a;
+  --gray-900: #121212;
+  
+  /* Spacing System */
+  --spacing-xs: 8px;
+  --spacing-sm: 12px;
+  --spacing-md: 20px;
+  --spacing-lg: 30px;
+  --spacing-xl: 40px;
+  --spacing-2xl: 60px;
+  
+  /* Border Radius */
+  --radius-sm: 5px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 15px;
+  --radius-2xl: 20px;
+  --radius-full: 50%;
+  
+  /* Shadows */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.15);
+  --shadow-xl: 0 10px 40px rgba(0, 0, 0, 0.3);
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease-in-out;
+  --transition-normal: 0.3s ease-in-out;
+  --transition-slow: 0.5s ease-in-out;
+  
+  /* Z-Index Scale */
+  --z-base: 1;
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal: 1050;
+  --z-tooltip: 1070;
+  
+  /* Font Sizes */
+  --font-xs: 0.75rem;
+  --font-sm: 0.875rem;
+  --font-base: 1rem;
+  --font-lg: 1.125rem;
+  --font-xl: 1.25rem;
+  --font-2xl: 1.5rem;
+  --font-3xl: 2rem;
+}
+
+/* ============================================
+   DARK MODE THEME VARIABLES
+   ============================================ */
+
+[data-theme="dark"] {
+  --farm-bg: #121212;
+  --farm-text: #e5e5e5;
+  --farm-white: #1f1f1f;
+  --gray-100: #2a2a2a;
+  --gray-200: #333333;
+  --gray-300: #444444;
+  --gray-500: #aaaaaa;
+  background: #121212;
+  color: #e5e5e5;
+}
