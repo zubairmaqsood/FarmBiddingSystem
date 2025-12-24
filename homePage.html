@@ -1,422 +1,311 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Farm Bidding System</title>
-    <link rel="stylesheet" href="css/bootstrap/bootstrap.css" />
-    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/homePage.css" />
-  </head>
-  <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-md  sticky-top border-bottom nav">
-      <div class="container-fluid">
-        <div class="navbar-brand">
-          <img
-            src="img/logo.webp"
-            alt="logo"
-            class=" brand-logo"
-          />
-          <span>Farm Bidding System</span>
-        </div>
+<html lang="en" data-theme="light">
 
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarContent"
-          aria-controls="navbarContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Farm Bidding System</title>
 
-        <div class="collapse navbar-collapse navContent" id="navbarContent">
-          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link nav-link-underline me-3" href="homePage.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link nav-link-underline me-3" href="#">About Us</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link nav-link-underline me-3" href="biddingpage.html">My Bid</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link nav-link-underline me-3" href="#"
-                >Contact us</a
-              >
-            </li>
-          </ul>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
 
-          <div class="d-flex">
-            <button class="btn btn-outline-success">logout</button>
-          </div>
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
-        </div>
+	<!-- Core CSS -->
+	<link rel="stylesheet" href="css/core/root.css" />
+	<link rel="stylesheet" href="css/core/default.css" />
 
-      </div>
-      
-    </nav>
+	<!-- Components CSS -->
+	<link rel="stylesheet" href="css/components/header.css" />
+	<link rel="stylesheet" href="css/components/footer.css" />
 
-    <!-- Main Div -->
-    <div class="d-flex flex-column gap-4 mt-2">
-      <!-- Image Section -->
-      <div class="row mt-3">
-        <div class="col-8 m-auto">
-          <div
-            id="mainCarousel"
-            class="carousel slide w-75 mx-auto shadow rounded border overflow-hidden mainPicContainer"
-            data-bs-ride="carousel"
-          >
-          <!-- Main pic indicator buttons -->
-            <div class="carousel-indicators">
-              <button
-                type="button"
-                data-bs-target="#mainCarousel"
-                data-bs-slide-to="0"
-                class="active"
-                aria-current="true"
-                aria-label="Slide 1"
-              ></button>
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="css/pages/homePage.css" />
+</head>
 
-              <button
-                type="button"
-                data-bs-target="#mainCarousel"
-                data-bs-slide-to="1"
-                aria-label="Slide 2"
-              ></button>
+<body>
+	<!-- Header placeholder -->
+	<div id="header-placeholder"></div>
 
-              <button
-                type="button"
-                data-bs-target="#mainCarousel"
-                data-bs-slide-to="2"
-                aria-label="Slide 3"
-              ></button>
+	<!-- Main Content -->
+	<main class="d-flex flex-column gap-4 mt-2">
+		<!-- Hero Carousel Section -->
+		<section class="row mt-3">
+			<div class="col-8 m-auto">
+				<div id="mainCarousel"
+					class="carousel slide w-75 mx-auto shadow rounded border overflow-hidden mainPicContainer"
+					data-bs-ride="carousel">
+					<!-- Carousel Indicators -->
+					<div class="carousel-indicators">
+						<button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="0" class="active"
+							aria-current="true" aria-label="Slide 1"></button>
+						<button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="1"
+							aria-label="Slide 2"></button>
+						<button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="2"
+							aria-label="Slide 3"></button>
+						<button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="3"
+							aria-label="Slide 4"></button>
+					</div>
 
-              <button
-                type="button"
-                data-bs-target="#mainCarousel"
-                data-bs-slide-to="3"
-                aria-label="Slide 4"
-              ></button>
+					<!-- Carousel Images -->
+					<div class="carousel-inner">
+						<div class="carousel-item active" data-bs-interval="3000">
+							<img src="img/mainPic1.webp" class="w-100 mainCarouselImg"
+								alt="Farm equipment showcase 1" />
+						</div>
+						<div class="carousel-item" data-bs-interval="3000">
+							<img src="img/mainPic2.webp" class="w-100 mainCarouselImg"
+								alt="Farm equipment showcase 2" />
+						</div>
+						<div class="carousel-item" data-bs-interval="3000">
+							<img src="img/mainPic3.webp" class="w-100 mainCarouselImg"
+								alt="Farm equipment showcase 3" />
+						</div>
+						<div class="carousel-item" data-bs-interval="3000">
+							<img src="img/mainPic4.webp" class="w-100 mainCarouselImg"
+								alt="Farm equipment showcase 4" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 
-            </div>
+		<!-- Live Auctions Section -->
+		<section class="p-3">
+			<h3><i class="fas fa-gavel"></i> Live Auctions</h3>
 
-            <!-- Main Pics -->
-            <div class="carousel-inner">
-              <div class="carousel-item active" data-bs-interval="3000">
-                <img
-                  src="img/mainPic1.webp"
-                  class=" w-100 mainCarouselImg"
-                  alt="First slide"
-                />
-              </div>
+			<div class="position-relative">
+				<button class="btn btn-dark scrollButton left-btn" onclick="scrollContainer('liveAuction','left')"
+					aria-label="Scroll left">
+					<i class="fas fa-chevron-left"></i>
+				</button>
 
-              <div class="carousel-item" data-bs-interval="3000">
-                <img
-                  src="img/mainPic2.webp"
-                  class=" w-100 mainCarouselImg"
-                  alt="Second slide"
-                />
-              </div>
+				<div class="d-flex flex-nowrap gap-4 scrollContainer position-relative pt-3" id="liveAuction">
+					<!-- Auction Cards will be dynamically loaded or kept as static -->
+					<!-- Card 1 -->
+					<article class="card custom-card">
+						<img src="img/tomato.webp" alt="Organic Tomato" class="card-img-top cardImg" />
+						<div class="card-body d-flex flex-column cardBody">
+							<h4 class="card-title cardTitle">Organic Tomato</h4>
+							<p class="fs-5 fw-bold cardLabel mb-1">Starting Price: $24</p>
+							<p class="fw-bold fs-5 cardLabel mb-1">Current Bid: $50</p>
+							<p class="card-text mb-0 fs-5 cardBid"><i class="fas fa-chart-line"></i> 4 bids</p>
+							<p class="card-text mb-2 fs-5 cardTime">
+								<i class="far fa-clock"></i> 5d remaining
+							</p>
+							<button class="btn btn-outline-success align-self-end mt-auto" onclick="handleBidClick(1)">
+								<i class="fas fa-gavel"></i> Bid Now
+							</button>
+						</div>
+					</article>
 
-              <div class="carousel-item" data-bs-interval="3000">
-                <img
-                  src="img/mainPic3.webp"
-                  class=" w-100 mainCarouselImg"
-                  alt="Third slide"
-                />
-              </div>
+					<!-- Card 2 -->
+					<article class="card custom-card">
+						<img src="img/onion.webp" alt="Organic Onion" class="card-img-top cardImg" />
+						<div class="card-body d-flex flex-column cardBody">
+							<h4 class="card-title cardTitle">Organic Onion</h4>
+							<p class="fs-5 fw-bold cardLabel mb-1">Starting Price: $234</p>
+							<p class="fw-bold fs-5 cardLabel mb-1">Current Bid: $500</p>
+							<p class="card-text mb-0 fs-5 cardBid"><i class="fas fa-chart-line"></i> 43 bids</p>
+							<p class="card-text mb-2 fs-5 cardTime">
+								<i class="far fa-clock"></i> 195s remaining
+							</p>
+							<button class="btn btn-outline-success align-self-end mt-auto" onclick="handleBidClick(2)">
+								<i class="fas fa-gavel"></i> Bid Now
+							</button>
+						</div>
+					</article>
 
-              <div class="carousel-item" data-bs-interval="3000">
-                <img
-                  src="img/mainPic4.webp"
-                  class=" w-100 mainCarouselImg"
-                  alt="Fourth slide"
-                />
-              </div>
+					<!-- Card 3 -->
+					<article class="card custom-card">
+						<img src="img/onion.webp" alt="Organic Onion" class="card-img-top cardImg" />
+						<div class="card-body d-flex flex-column cardBody">
+							<h4 class="card-title cardTitle">Organic Onion</h4>
+							<p class="fs-5 fw-bold cardLabel mb-1">Starting Price: $234</p>
+							<p class="fw-bold fs-5 cardLabel mb-1">Current Bid: $500</p>
+							<p class="card-text mb-0 fs-5 cardBid"><i class="fas fa-chart-line"></i> 43 bids</p>
+							<p class="card-text mb-2 fs-5 cardTime">
+								<i class="far fa-clock"></i> 195s remaining
+							</p>
+							<button class="btn btn-outline-success align-self-end mt-auto" onclick="handleBidClick(3)">
+								<i class="fas fa-gavel"></i> Bid Now
+							</button>
+						</div>
+					</article>
 
-            </div>
-          </div>
-        </div>
-      </div>
+					<!-- Card 3 -->
+					<article class="card custom-card">
+						<img src="img/onion.webp" alt="Organic Onion" class="card-img-top cardImg" />
+						<div class="card-body d-flex flex-column cardBody">
+							<h4 class="card-title cardTitle">Organic Onion</h4>
+							<p class="fs-5 fw-bold cardLabel mb-1">Starting Price: $234</p>
+							<p class="fw-bold fs-5 cardLabel mb-1">Current Bid: $500</p>
+							<p class="card-text mb-0 fs-5 cardBid"><i class="fas fa-chart-line"></i> 43 bids</p>
+							<p class="card-text mb-2 fs-5 cardTime">
+								<i class="far fa-clock"></i> 195s remaining
+							</p>
+							<button class="btn btn-outline-success align-self-end mt-auto" onclick="handleBidClick(3)">
+								<i class="fas fa-gavel"></i> Bid Now
+							</button>
+						</div>
+					</article>
 
-      <!-- Live Auction Section -->
-      <div class="p-3">
-        <h3>Live Auctions</h3>
+					<!-- Card 4 -->
+					<article class="card custom-card">
+						<img src="img/onion.webp" alt="Organic Onion" class="card-img-top cardImg" />
+						<div class="card-body d-flex flex-column cardBody">
+							<h4 class="card-title cardTitle">Organic Onion</h4>
+							<p class="fs-5 fw-bold cardLabel mb-1">Starting Price: $234</p>
+							<p class="fw-bold fs-5 cardLabel mb-1">Current Bid: $500</p>
+							<p class="card-text mb-0 fs-5 cardBid"><i class="fas fa-chart-line"></i> 43 bids</p>
+							<p class="card-text mb-2 fs-5 cardTime">
+								<i class="far fa-clock"></i> 195s remaining
+							</p>
+							<button class="btn btn-outline-success align-self-end mt-auto" onclick="handleBidClick(4)">
+								<i class="fas fa-gavel"></i> Bid Now
+							</button>
+						</div>
+					</article>
 
-        <div class="position-relative">
-          <button
-            class="btn btn-dark scrollButton left-btn"
-            onclick="scrollContainer('liveAuction','left')"
-          >
-            &lt
-          </button>
+					<!-- Add more cards as needed -->
+					<!-- Duplicate cards removed for brevity - add them back with unique IDs -->
+				</div>
 
-          <div
-            class="d-flex flex-nowrap gap-4 scrollContainer position-relative pt-3"
-            id="liveAuction"
-          >
-            <!-- Auction Item Card -->
-            <div class="card custom-card">
-              <img
-                src="img/tomato.webp"
-                alt="tomatoPic"
-                class="card-img-top cardImg"
-              />
-              <div class="card-body d-flex flex-column cardBody">
-                 <h4 class="card-title cardTitle">Organic Tomato</h4>
-                <h6 class=" fs-5 fw-bold cardLabel">Starting Price: 24$</h6>
-                <h6 class="fw-bold fs-5 cardLabel">Current Top Bid: 50$</h6>
-                <p class="card-text mb-0 fs-5 cardBid">📊 4 bids Placed</p>
-                <p class="card-text mb-2 fs-5 cardTime">⏰ Time Remaining: 5d</p>
-                <button class="btn btn-outline-success alig-self-end mt-auto">
-                  Bid Now
-                </button>
-              </div>
-            </div>
+				<button class="btn btn-dark scrollButton right-btn" onclick="scrollContainer('liveAuction','right')"
+					aria-label="Scroll right">
+					<i class="fas fa-chevron-right"></i>
+				</button>
+			</div>
+		</section>
 
-            <div class="card custom-card">
-              <img
-                src="img/onion.webp"
-                alt="onionPic"
-                class="card-img-top cardImg"
-              />
-              <div class="card-body d-flex flex-column cardBody">
-                 <h4 class="card-title cardTitle">Organic Onion</h4>
-                <h6 class=" fs-5 fw-bold cardLabel">Starting Price: 234$</h6>
-                <h6 class="fw-bold fs-5 cardLabel">Current Top Bid: 500$</h6>
-                <p class="card-text mb-0 fs-5 cardBid">📊 43 bids Placed</p>
-                <p class="card-text mb-2 fs-5 cardTime">⏰ Time Remaining: 195s</p>
-                <button class="btn btn-outline-success alig-self-end mt-auto">
-                  Bid Now
-                </button>
-              </div>
-            </div>
+		<!-- Ending Auction Section -->
+		<section class="p-3">
+			<h3><i class="fas fa-gavel"></i>Ending Auctions</h3>
 
-            <div class="card custom-card">
-              <img
-                src="img/onion.webp"
-                alt="onionPic"
-                class="card-img-top cardImg"
-              />
-              <div class="card-body d-flex flex-column cardBody">
-                 <h4 class="card-title cardTitle">Organic Onion</h4>
-                <h6 class=" fs-5 fw-bold cardLabel">Starting Price: 234$</h6>
-                <h6 class="fw-bold fs-5 cardLabel">Current Top Bid: 500$</h6>
-                <p class="card-text mb-0 fs-5 cardBid">📊 43 bids Placed</p>
-                <p class="card-text mb-2 fs-5 cardTime">⏰ Time Remaining: 195s</p>
-                <button class="btn btn-outline-success alig-self-end mt-auto">
-                  Bid Now
-                </button>
-              </div>
-            </div>
+			<div class="position-relative">
+				<button class="btn btn-dark scrollButton left-btn" onclick="scrollContainer('endingSoon','left')"
+					aria-label="Scroll left">
+					<i class="fas fa-chevron-left"></i>
+				</button>
 
-            <div class="card custom-card">
-              <img
-                src="img/onion.webp"
-                alt="onionPic"
-                class="card-img-top cardImg"
-              />
-              <div class="card-body d-flex flex-column cardBody">
-                 <h4 class="card-title cardTitle">Organic Onion</h4>
-                <h6 class=" fs-5 fw-bold cardLabel">Starting Price: 234$</h6>
-                <h6 class="fw-bold fs-5 cardLabel">Current Top Bid: 500$</h6>
-                <p class="card-text mb-0 fs-5 cardBid">📊 43 bids Placed</p>
-                <p class="card-text mb-2 fs-5 cardTime">⏰ Time Remaining: 195s</p>
-                <button class="btn btn-outline-success alig-self-end mt-auto">
-                  Bid Now
-                </button>
-              </div>
-            </div>
+				<div class="d-flex flex-nowrap scrollContainer position-relative gap-4 pt-3" id="endingSoon">
+					<!-- Ending Soon Cards -->
+					<article class="card custom-card">
+						<img src="img/tomato.webp" alt="Organic Tomato" class="card-img-top cardImg" />
+						<div class="card-body d-flex flex-column cardBody">
+							<h4 class="card-title cardTitle">Organic Tomato</h4>
+							<p class="fs-5 fw-bold cardLabel mb-1">Starting Price: $134</p>
+							<p class="fw-bold fs-5 cardLabel mb-1">Current Bid: $600</p>
+							<p class="card-text mb-0 fs-5 cardBid"><i class="fas fa-chart-line"></i> 20
+								bids
+							</p>
+							<p class="card-text mb-2 fs-5 cardTime">
+								<i class="far fa-clock"></i> 2d remaining
+							</p>
+							<button class="btn btn-outline-success align-self-end mt-auto" onclick="handleBidClick(10)">
+								<i class="fas fa-gavel"></i> Bid Now
+							</button>
+						</div>
+					</article>
 
-            <div class="card custom-card">
-              <img
-                src="img/onion.webp"
-                alt="onionPic"
-                class="card-img-top cardImg"
-              />
-              <div class="card-body d-flex flex-column cardBody">
-                 <h4 class="card-title cardTitle">Organic Onion</h4>
-                <h6 class=" fs-5 fw-bold cardLabel">Starting Price: 234$</h6>
-                <h6 class="fw-bold fs-5 cardLabel">Current Top Bid: 500$</h6>
-                <p class="card-text mb-0 fs-5 cardBid">📊 43 bids Placed</p>
-                <p class="card-text mb-2 fs-5 cardTime">⏰ Time Remaining: 195s</p>
-                <button class="btn btn-outline-success alig-self-end mt-auto">
-                  Bid Now
-                </button>
-              </div>
-            </div>
+					<article class="card custom-card">
+						<img src="img/tomato.webp" alt="Organic Tomato" class="card-img-top cardImg" />
+						<div class="card-body d-flex flex-column cardBody">
+							<h4 class="card-title cardTitle">Organic Tomato</h4>
+							<p class="fs-5 fw-bold cardLabel mb-1">Starting Price: $134</p>
+							<p class="fw-bold fs-5 cardLabel mb-1">Current Bid: $600</p>
+							<p class="card-text mb-0 fs-5 cardBid"><i class="fas fa-chart-line"></i> 20
+								bids
+							</p>
+							<p class="card-text mb-2 fs-5 cardTime">
+								<i class="far fa-clock"></i> 2d remaining
+							</p>
+							<button class="btn btn-outline-success align-self-end mt-auto" onclick="handleBidClick(11)">
+								<i class="fas fa-gavel"></i> Bid Now
+							</button>
+						</div>
+					</article>
+					<article class="card custom-card">
+						<img src="img/tomato.webp" alt="Organic Tomato" class="card-img-top cardImg" />
+						<div class="card-body d-flex flex-column cardBody">
+							<h4 class="card-title cardTitle">Organic Tomato</h4>
+							<p class="fs-5 fw-bold cardLabel mb-1">Starting Price: $134</p>
+							<p class="fw-bold fs-5 cardLabel mb-1">Current Bid: $600</p>
+							<p class="card-text mb-0 fs-5 cardBid"><i class="fas fa-chart-line"></i> 20
+								bids
+							</p>
+							<p class="card-text mb-2 fs-5 cardTime">
+								<i class="far fa-clock"></i> 2d remaining
+							</p>
+							<button class="btn btn-outline-success align-self-end mt-auto" onclick="handleBidClick(12)">
+								<i class="fas fa-gavel"></i> Bid Now
+							</button>
+						</div>
+					</article>
+					<article class="card custom-card">
+						<img src="img/tomato.webp" alt="Organic Tomato" class="card-img-top cardImg" />
+						<div class="card-body d-flex flex-column cardBody">
+							<h4 class="card-title cardTitle">Organic Tomato</h4>
+							<p class="fs-5 fw-bold cardLabel mb-1">Starting Price: $134</p>
+							<p class="fw-bold fs-5 cardLabel mb-1">Current Bid: $600</p>
+							<p class="card-text mb-0 fs-5 cardBid"><i class="fas fa-chart-line"></i> 20
+								bids
+							</p>
+							<p class="card-text mb-2 fs-5 cardTime">
+								<i class="far fa-clock"></i> 2d remaining
+							</p>
+							<button class="btn btn-outline-success align-self-end mt-auto" onclick="handleBidClick(13)">
+								<i class="fas fa-gavel"></i> Bid Now
+							</button>
+						</div>
+					</article>
+					<article class="card custom-card">
+						<img src="img/tomato.webp" alt="Organic Tomato" class="card-img-top cardImg" />
+						<div class="card-body d-flex flex-column cardBody">
+							<h4 class="card-title cardTitle">Organic Tomato</h4>
+							<p class="fs-5 fw-bold cardLabel mb-1">Starting Price: $134</p>
+							<p class="fw-bold fs-5 cardLabel mb-1">Current Bid: $300</p>
+							<p class="card-text mb-0 fs-5 cardBid"><i class="fas fa-chart-line"></i> 20
+								bids
+							</p>
+							<p class="card-text mb-2 fs-5 cardTime">
+								<i class="far fa-clock"></i> 2d remaining
+							</p>
+							<button class="btn btn-outline-success align-self-end mt-auto" onclick="handleBidClick(14)">
+								<i class="fas fa-gavel"></i> Bid Now
+							</button>
+						</div>
+					</article>
 
-            <div class="card custom-card">
-              <img
-                src="img/onion.webp"
-                alt="onionPic"
-                class="card-img-top cardImg"
-              />
-              <div class="card-body d-flex flex-column cardBody">
-                 <h4 class="card-title cardTitle">Organic Onion</h4>
-                <h6 class=" fs-5 fw-bold cardLabel">Starting Price: 234$</h6>
-                <h6 class="fw-bold fs-5 cardLabel">Current Top Bid: 500$</h6>
-                <p class="card-text mb-0 fs-5 cardBid">📊 43 bids Placed</p>
-                <p class="card-text mb-2 fs-5 cardTime">⏰ Time Remaining: 195s</p>
-                <button class="btn btn-outline-success alig-self-end mt-auto">
-                  Bid Now
-                </button>
-              </div>
-            </div>
-          </div>
+					<!-- Add more ending soon cards -->
+				</div>
 
-          <button
-            class="btn btn-dark scrollButton right-btn"
-            onclick="scrollContainer('liveAuction','right')"
-          >
-            &gt
-          </button>
-        </div>
-      </div>
+				<button class="btn btn-dark scrollButton right-btn" onclick="scrollContainer('endingSoon','right')"
+					aria-label="Scroll right">
+					<i class="fas fa-chevron-right"></i>
+				</button>
+			</div>
+		</section>
+	</main>
 
-      <!-- Ending Auction Section -->
-      <div class="p-3">
-        <h3>Ending soon</h3>
+	<!-- Footer placeholder -->
+	<div id="footer-placeholder"></div>
 
-        <div class="position-relative">
-          <button
-            class="btn btn-dark scrollButton left-btn"
-            onclick="scrollContainer('endingSoon','left')"
-          >
-            &lt
-          </button>
+	<!-- 1. Bootstrap JS -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-          <div
-            class="d-flex flex-nowrap scrollContainer position-relative gap-4 pt-3"
-            id="endingSoon"
-          >
-            <!-- Ending Item Card -->
-            <div class="card custom-card">
-              <img
-                src="img/tomato.webp"
-                alt="tomatoPic"
-                class="card-img-top cardImg"
-              />
-              <div class="card-body d-flex flex-column cardBody">
-                <h4 class="card-title cardTitle">Organic Tomato</h4>
-                <h6 class=" fs-5 fw-bold cardLabel">Starting Price: 134$</h6>
-                <h6 class="fw-bold fs-5 cardLabel">Current Top Bid: 600$</h6>
-                <p class="card-text mb-0 fs-5 cardBid">📊 20 bids Placed</p>
-                <p class="card-text mb-2 fs-5 cardTime">⏰ Time Remaining: 2d</p>
-                <button class="btn btn-outline-success alig-self-end mt-auto">
-                  Bid Now
-                </button>
-              </div>
-            </div>
+	<!-- 2. Font Awesome -->
+	<script src="https://kit.fontawesome.com/a2e0e6ad65.js" crossorigin="anonymous"></script>
 
-            <div class="card custom-card">
-              <img
-                src="img/onion.webp"
-                alt="onionPic"
-                class="card-img-top cardImg"
-              />
-              <div class="card-body d-flex flex-column cardBody">
-                <h4 class="card-title cardTitle">Organic Onion</h4>
-                <h6 class=" fs-5 fw-bold cardLabel">Starting Price: 234$</h6>
-                <h6 class="fw-bold fs-5 cardLabel">Current Top Bid: 500$</h6>
-                <p class="card-text mb-0 fs-5 cardBid">📊 43 bids Placed</p>
-                <p class="card-text mb-2 fs-5 cardTime">⏰ Time Remaining: 195s</p>
-                <button class="btn btn-outline-success alig-self-end mt-auto">
-                  Bid Now
-                </button>
-              </div>
-            </div>
+	<!-- 3. Authentication System -->
+	<script src="js/auth.js"></script>
 
-            <div class="card custom-card">
-              <img
-                src="img/onion.webp"
-                alt="onionPic"
-                class="card-img-top cardImg"
-              />
-              <div class="card-body d-flex flex-column cardBody">
-                 <h4 class="card-title cardTitle">Organic Onion</h4>
-                <h6 class=" fs-5 fw-bold cardLabel">Starting Price: 234$</h6>
-                <h6 class="fw-bold fs-5 cardLabel">Current Top Bid: 500$</h6>
-                <p class="card-text mb-0 fs-5 cardBid">📊 43 bids Placed</p>
-                <p class="card-text mb-2 fs-5 cardTime">⏰ Time Remaining: 195s</p>
-                <button class="btn btn-outline-success alig-self-end mt-auto">
-                  Bid Now
-                </button>
-              </div>
-            </div>
+	<!-- 4. Load Components (Header/Footer) -->
+	<script src="js/loadComponents.js"></script>
 
-            <div class="card custom-card">
-              <img
-                src="img/onion.webp"
-                alt="onionPic"
-                class="card-img-top cardImg"
-              />
-              <div class="card-body d-flex flex-column cardBody">
-                 <h4 class="card-title cardTitle">Organic Onion</h4>
-                <h6 class=" fs-5 fw-bold cardLabel">Starting Price: 234$</h6>
-                <h6 class="fw-bold fs-5 cardLabel">Current Top Bid: 500$</h6>
-                <p class="card-text mb-0 fs-5 cardBid">📊 43 bids Placed</p>
-                <p class="card-text mb-2 fs-5 cardTime">⏰ Time Remaining: 195s</p>
-                <button class="btn btn-outline-success alig-self-end mt-auto">
-                  Bid Now
-                </button>
-              </div>
-            </div>
+	<!-- 5. Page-Specific Script -->
+	<script src="js/homePage.js"></script>
+</body>
 
-            <div class="card custom-card">
-              <img
-                src="img/onion.webp"
-                alt="onionPic"
-                class="card-img-top cardImg"
-              />
-              <div class="card-body d-flex flex-column cardBody">
-                 <h4 class="card-title cardTitle">Organic Onion</h4>
-                <h6 class=" fs-5 fw-bold cardLabel">Starting Price: 234$</h6>
-                <h6 class="fw-bold fs-5 cardLabel">Current Top Bid: 500$</h6>
-                <p class="card-text mb-0 fs-5 cardBid">📊 43 bids Placed</p>
-                <p class="card-text mb-2 fs-5 cardTime">⏰ Time Remaining: 195s</p>
-                <button class="btn btn-outline-success alig-self-end mt-auto">
-                  Bid Now
-                </button>
-              </div>
-            </div>
-
-            <div class="card custom-card">
-              <img
-                src="img/onion.webp"
-                alt="onionPic"
-                class="card-img-top cardImg"
-              />
-              <div class="card-body d-flex flex-column cardBody">
-                 <h4 class="card-title cardTitle">Organic Onion</h4>
-                <h6 class=" fs-5 fw-bold cardLabel">Starting Price: 234$</h6>
-                <h6 class="fw-bold fs-5 cardLabel">Current Top Bid: 500$</h6>
-                <p class="card-text mb-0 fs-5 cardBid">📊 43 bids Placed</p>
-                <p class="card-text mb-2 fs-5 cardTime">⏰ Time Remaining: 195s</p>
-                <button class="btn btn-outline-success alig-self-end mt-auto">
-                  Bid Now
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <button
-            class="btn btn-dark scrollButton right-btn"
-            onclick="scrollContainer('endingSoon','right')"
-          >
-            &gt
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <script src="js/bootstrap/bootstrap.bundle.js"></script>
-    <!-- <script src="js/bootstrap/bootstrap.min.js"></script> -->
-    <script src="js/homepage.js"></script>
-  </body>
 </html>
