@@ -1,0 +1,86 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+}
+
+/* MAIN CONTAINER */
+.login-container {
+    max-width: 1000px;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+}
+
+/* LEFT PANEL */
+.left {
+    padding: 40px;
+    background: #ffffff;
+}
+
+.left h1 {
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+input {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.forgot {
+    text-align: right;
+    margin: 10px 0;
+    font-size: 13px;
+    text-decoration: underline;
+    color: #0b5f2a;
+}
+
+.login-btn {
+    margin-top: 20px;
+    padding: 12px;
+    background: #0b5f2a;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.signup-text {
+    margin-top: 20px;
+}
+
+/* RIGHT PANEL */
+.right {
+    background: url("../img/loginImg.webp") center/cover no-repeat;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.right::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+}
+
+.overlay-content {
+    position: relative;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
