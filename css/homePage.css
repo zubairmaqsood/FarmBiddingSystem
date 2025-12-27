@@ -8,7 +8,6 @@
 }
 
 body {
-  overflow-x: hidden;
   background-color: var(--farm-bg); /* Sets the page background */
   color: var(--farm-text);
   font-family: sans-serif; /* Modern Font */
@@ -175,9 +174,7 @@ h3 {
   overflow-x: hidden;
 }
 
-.scrollContainer::-webkit-scrollbar {
-  display: none;
-}
+
 
 .scrollButton {
   position: absolute;
