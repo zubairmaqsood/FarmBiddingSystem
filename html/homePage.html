@@ -1,12 +1,11 @@
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Farm Bidding System</title>
-    <link rel="stylesheet" href="css/bootstrap/bootstrap.css" />
-    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/homePage.css" />
+    <link rel="stylesheet" href="../css/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/homePage.css" />
   </head>
   <body>
     <!-- Navbar -->
@@ -14,7 +13,7 @@
       <div class="container-fluid">
         <div class="navbar-brand">
           <img
-            src="img/logo.webp"
+            src="../img/logo.webp"
             alt="logo"
             class=" brand-logo"
           />
@@ -109,7 +108,7 @@
             <div class="carousel-inner">
               <div class="carousel-item active" data-bs-interval="3000">
                 <img
-                  src="img/mainPic1.webp"
+                  src="../img/mainPic1.webp"
                   class=" w-100 mainCarouselImg"
                   alt="First slide"
                 />
@@ -117,7 +116,7 @@
 
               <div class="carousel-item" data-bs-interval="3000">
                 <img
-                  src="img/mainPic2.webp"
+                  src="../img/mainPic2.webp"
                   class=" w-100 mainCarouselImg"
                   alt="Second slide"
                 />
@@ -125,7 +124,7 @@
 
               <div class="carousel-item" data-bs-interval="3000">
                 <img
-                  src="img/mainPic3.webp"
+                  src="../img/mainPic3.webp"
                   class=" w-100 mainCarouselImg"
                   alt="Third slide"
                 />
@@ -133,7 +132,7 @@
 
               <div class="carousel-item" data-bs-interval="3000">
                 <img
-                  src="img/mainPic4.webp"
+                  src="../img/mainPic4.webp"
                   class=" w-100 mainCarouselImg"
                   alt="Fourth slide"
                 />
@@ -148,11 +147,13 @@
       <div class="p-3">
         <h3>Live Auctions</h3>
 
-			<div class="position-relative">
-				<button class="btn btn-dark scrollButton left-btn" onclick="scrollContainer('liveAuction','left')"
-					aria-label="Scroll left">
-					<i class="fas fa-chevron-left"></i>
-				</button>
+        <div class="position-relative">
+          <button
+            class="btn btn-dark scrollButton left-btn"
+            onclick="scrollContainer('liveAuction','left')"
+          >
+            &lt
+          </button>
 
           <div
             class="d-flex flex-nowrap gap-4 scrollContainer position-relative pt-3"
@@ -161,7 +162,7 @@
             <!-- Auction Item Card -->
             <div class="card custom-card">
               <img
-                src="img/tomato.webp"
+                src="../img/tomato.webp"
                 alt="tomatoPic"
                 class="card-img-top cardImg"
               />
@@ -179,7 +180,7 @@
 
             <div class="card custom-card">
               <img
-                src="img/onion.webp"
+                src="../img/onion.webp"
                 alt="onionPic"
                 class="card-img-top cardImg"
               />
@@ -197,7 +198,7 @@
 
             <div class="card custom-card">
               <img
-                src="img/onion.webp"
+                src="../img/onion.webp"
                 alt="onionPic"
                 class="card-img-top cardImg"
               />
@@ -215,7 +216,7 @@
 
             <div class="card custom-card">
               <img
-                src="img/onion.webp"
+                src="../img/onion.webp"
                 alt="onionPic"
                 class="card-img-top cardImg"
               />
@@ -233,7 +234,7 @@
 
             <div class="card custom-card">
               <img
-                src="img/onion.webp"
+                src="../img/onion.webp"
                 alt="onionPic"
                 class="card-img-top cardImg"
               />
@@ -251,7 +252,7 @@
 
             <div class="card custom-card">
               <img
-                src="img/onion.webp"
+                src="../img/onion.webp"
                 alt="onionPic"
                 class="card-img-top cardImg"
               />
@@ -268,22 +269,26 @@
             </div>
           </div>
 
-				<button class="btn btn-dark scrollButton right-btn" onclick="scrollContainer('liveAuction','right')"
-					aria-label="Scroll right">
-					<i class="fas fa-chevron-right"></i>
-				</button>
-			</div>
-		</section>
+          <button
+            class="btn btn-dark scrollButton right-btn"
+            onclick="scrollContainer('liveAuction','right')"
+          >
+            &gt
+          </button>
+        </div>
+      </div>
 
-		<!-- Ending Auction Section -->
-		<section class="p-3">
-			<h3><i class="fas fa-gavel"></i>Ending Auctions</h3>
+      <!-- Ending Auction Section -->
+      <div class="p-3">
+        <h3>Ending soon</h3>
 
-			<div class="position-relative">
-				<button class="btn btn-dark scrollButton left-btn" onclick="scrollContainer('endingSoon','left')"
-					aria-label="Scroll left">
-					<i class="fas fa-chevron-left"></i>
-				</button>
+        <div class="position-relative">
+          <button
+            class="btn btn-dark scrollButton left-btn"
+            onclick="scrollContainer('endingSoon','left')"
+          >
+            &lt
+          </button>
 
           <div
             class="d-flex flex-nowrap scrollContainer position-relative gap-4 pt-3"
@@ -292,7 +297,7 @@
             <!-- Ending Item Card -->
             <div class="card custom-card">
               <img
-                src="img/tomato.webp"
+                src="../img/tomato.webp"
                 alt="tomatoPic"
                 class="card-img-top cardImg"
               />
@@ -310,7 +315,7 @@
 
             <div class="card custom-card">
               <img
-                src="img/onion.webp"
+                src="../img/onion.webp"
                 alt="onionPic"
                 class="card-img-top cardImg"
               />
@@ -328,7 +333,7 @@
 
             <div class="card custom-card">
               <img
-                src="img/onion.webp"
+                src="../img/onion.webp"
                 alt="onionPic"
                 class="card-img-top cardImg"
               />
@@ -346,7 +351,7 @@
 
             <div class="card custom-card">
               <img
-                src="img/onion.webp"
+                src="../img/onion.webp"
                 alt="onionPic"
                 class="card-img-top cardImg"
               />
@@ -364,7 +369,7 @@
 
             <div class="card custom-card">
               <img
-                src="img/onion.webp"
+                src="../img/onion.webp"
                 alt="onionPic"
                 class="card-img-top cardImg"
               />
@@ -382,7 +387,7 @@
 
             <div class="card custom-card">
               <img
-                src="img/onion.webp"
+                src="../img/onion.webp"
                 alt="onionPic"
                 class="card-img-top cardImg"
               />
@@ -409,8 +414,8 @@
       </div>
     </div>
 
-    <script src="js/bootstrap/bootstrap.bundle.js"></script>
+    <script src="../js/bootstrap/bootstrap.bundle.js"></script>
     <!-- <script src="js/bootstrap/bootstrap.min.js"></script> -->
-    <script src="js/homepage.js"></script>
+    <script src="../js/homepage.js"></script>
   </body>
 </html>
