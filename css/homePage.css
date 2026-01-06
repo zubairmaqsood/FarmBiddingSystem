@@ -171,7 +171,7 @@ h3 {
 
 .scrollContainer {
   scroll-behavior: smooth;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 
@@ -213,12 +213,8 @@ h3 {
   }
 }
 
-@media (max-width: 767px) {
-  .custom-card {
-    width: calc(33.333% - 24px);
-  }
-
-  .scrollButton {
+@media (max-width: 991px) {
+   .scrollButton {
     display: none;
   }
 
@@ -226,6 +222,12 @@ h3 {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scroll-snap-type: x mandatory;
+  }
+}
+
+@media (max-width: 767px) {
+  .custom-card {
+    width: calc(33.333% - 24px);
   }
 
   .nav-link-underline {
@@ -256,14 +258,4 @@ h3 {
     border-style: solid;
     border-color: transparent transparent var(--farm-white) transparent;
   }
-}
-
-@media (min-width:768px) and (max-width:792px){
-  .nav
-}
-
-@media (max-width: 667px) {
-  .custom-card {
-    width: calc(50% - 24px);
-  }
-}
+} 
