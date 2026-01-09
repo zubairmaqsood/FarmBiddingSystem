@@ -1,5 +1,4 @@
 $(document).ready(function () {
-
   function formatTime(ms) {
     if (ms <= 0) return "Expired";
     const parts = [];
@@ -33,177 +32,185 @@ $(document).ready(function () {
   }
 
   function updateAllCards() {
-  const THREE_HOURS_MS = 3 * 60 * 60 * 1000;
-  const now = new Date().getTime();
+    const THREE_HOURS_MS = 3 * 60 * 60 * 1000;
+    const now = new Date().getTime();
 
-  // Loop through currently visible cards
-  $(".custom-card").each(function () {
-    const $card = $(this);
-    const endTimeStr = $card.attr("data-endtime");
-    const diff = new Date(endTimeStr).getTime() - now;
-    const $timeText = $card.find(".cardTime"); // Select the text element
+    // Loop through currently visible cards
+    $(".custom-card").each(function () {
+      const $card = $(this);
+      const endTimeStr = $card.attr("data-endtime");
+      const diff = new Date(endTimeStr).getTime() - now;
+      const $timeText = $card.find(".cardTime"); // Select the text element
 
-    // 1. Update Text
-    $timeText.text("⏰ " + formatTime(diff));
+      // 1. Update Text
+      $timeText.text("⏰ " + formatTime(diff));
 
-    // 2. Handle Expiration
-    if (diff <= 0) {
-      $card.remove();
-      return; // Stop processing this card
-    }
-
-    // 3. Handle Moving Logic
-    const parentId = $card.parent().attr("id");
-
-    if (diff <= THREE_HOURS_MS) {
-      // Should be in Ending Soon
-      if (parentId !== "endingSoon") {
-        $timeText.removeClass("text-success").addClass("text-danger");
-        $card.detach().prependTo("#endingSoon"); // Move it
+      // 2. Handle Expiration
+      if (diff <= 0) {
+        $card.remove();
+        return; // Stop processing this card
       }
-    } else {
-      // Should be in Live Auction
-      if (parentId !== "liveAuction") {
-        $timeText.removeClass("text-danger").addClass("text-success");
-        $card.detach().appendTo("#liveAuction"); // Move it
+
+      // 3. Handle Moving Logic
+      const parentId = $card.parent().attr("id");
+
+      if (diff <= THREE_HOURS_MS) {
+        // Should be in Ending Soon
+        if (parentId !== "endingSoon") {
+          $timeText.removeClass("text-success").addClass("text-danger");
+          $card.detach().prependTo("#endingSoon"); 
+        }
+      } else {
+        // Should be in Live Auction
+        if (parentId !== "liveAuction") {
+          $timeText.removeClass("text-danger").addClass("text-success");
+          $card.detach().appendTo("#liveAuction"); 
+        }
       }
-    }
-  });
-}
+    });
+  }
 
-  setTimeout(() => {
-    const data = [
-    // --- EXPIRED ITEMS (Time < Jan 6, 21:25) ---
-    { 
-        title: "Expired Garlic", 
-        base: 40, 
-        highestBid: 120, 
-        bids: 12, 
-        endTime: "2026-01-05 11:00:00", // Yesterday (Expired)
-        img: "../img/garlic.webp" 
-    },
-    { 
-        title: "Sold Out Spinach", 
-        base: 15, 
-        highestBid: 30, 
-        bids: 8, 
-        endTime: "2026-01-06 18:00:00", // Today at 6:00 PM (Expired 3 hours ago)
-        img: "../img/spinach.webp" 
-    },
+  function viewDetails(){
+    console.log("vew button")
+  }
 
-    // --- ENDING SOON (Less than 3 hours from 9:25 PM) ---
-    { 
-        title: "Red Chilies", 
-        base: 50, 
-        highestBid: 85, 
-        bids: 15, 
-        // 2 Minutes from now (9:34 PM)
-        endTime: "2026-01-06 21:34:00", 
-        img: "../img/chili.webp" 
-    },
-    { 
-        title: "Fresh Coriander", 
-        base: 20, 
-        highestBid: 45, 
-        bids: 22, 
-        endTime: "2026-01-06 23:55:00", // Today 11:55 PM (~2.5 hours left)
-        img: "../img/coriander.webp" 
-    },
-    { 
-        title: "Bell Peppers", 
-        base: 100, 
-        highestBid: 150, 
-        bids: 9, 
-        endTime: "2026-01-07 00:15:00", // Tomorrow 12:15 AM (Technically < 3 hours)
-        img: "../img/pepper.webp" 
-    },
+  function bidButton(){
+    console.log("bid button")
+  }
 
-    // --- LIVE AUCTIONS (More than 3 hours left) ---
-    { 
-        title: "Organic Tomato", 
-        base: 24, 
-        highestBid: 50, 
-        bids: 4, 
-        endTime: "2026-01-07 10:00:00", // Tomorrow Morning (Live)
-        img: "../img/tomato.webp" 
-    },
-    { 
-        title: "Organic Tomato", 
-        base: 24, 
-        highestBid: 50, 
-        bids: 4, 
-        endTime: "2026-01-07 10:00:00", // Tomorrow Morning (Live)
-        img: "../img/tomato.webp" 
-    },
-    { 
-        title: "Large Potatoes", 
-        base: 40, 
-        highestBid: 120, 
-        bids: 12, 
-        endTime: "2026-01-07 00:35:00", 
-        img: "../img/potato.webp" 
-    },
-    { 
-        title: "Large Potatoes", 
-        base: 40, 
-        highestBid: 120, 
-        bids: 12, 
-        endTime: "2026-01-07 00:35:00", 
-        img: "../img/potato.webp" 
-    },
-    { 
-        title: "Large Potatoes", 
-        base: 40, 
-        highestBid: 120, 
-        bids: 12, 
-        endTime: "2026-01-07 00:35:00", 
-        img: "../img/potato.webp" 
-    },
-    { 
-        title: "Large Potatoes", 
-        base: 40, 
-        highestBid: 120, 
-        bids: 12, 
-        endTime: "2026-01-07 00:35:00", 
-        img: "../img/potato.webp" 
-    },
-    { 
-        title: "Large Potatoes", 
-        base: 40, 
-        highestBid: 120, 
-        bids: 12, 
-        endTime: "2026-01-07 00:35:00", 
-        img: "../img/potato.webp" 
-    },
-    { 
-        title: "Fresh Onions", 
-        base: 234, 
-        highestBid: 500, 
-        bids: 43, 
-        endTime: "2026-01-10 12:00:00", // 4 Days from now (Live)
-        img: "../img/onion.webp" 
-    }
-];
+  $.get("../php/homePage.php", function (data) {
+    // const data = [
+    // { 
+    //     auc_title: "Expired Garlic", 
+    //     base_price: 40, 
+    //     highest_bid: 120, 
+    //     bid_count: 12, 
+    //     end_time: "2026-01-05 11:00:00", // Yesterday (Expired)
+    //     image_path: "../img/garlic.webp" 
+    // },
+    // { 
+    //     auc_title: "Sold Out Spinach", 
+    //     base_price: 15, 
+    //     highest_bid: 30, 
+    //     bid_count: 8, 
+    //     end_time: "2026-01-06 18:00:00", // Today at 6:00 PM (Expired 3 hours ago)
+    //     image_path: "../img/spinach.webp" 
+    // },
 
+    // // --- ENDING SOON (Less than 3 hours from 9:25 PM) ---
+    // { 
+    //     auc_title: "Red Chilies", 
+    //     base_price: 50, 
+    //     highest_bid: 85, 
+    //     bid_count: 15, 
+    //     // 2 Minutes from now (9:34 PM)
+    //     end_time: "2026-01-06 21:34:00", 
+    //     image_path: "../img/chili.webp" 
+    // },
+    // { 
+    //     auc_title: "Fresh Coriander", 
+    //     base_price: 20, 
+    //     highest_bid: 45, 
+    //     bid_count: 22, 
+    //     end_time: "2026-01-06 23:55:00", // Today 11:55 PM (~2.5 hours left)
+    //     image_path: "../img/coriander.webp" 
+    // },
+    // { 
+    //     auc_title: "Bell Peppers", 
+    //     base_price: 100, 
+    //     highest_bid: 150, 
+    //     bid_count: 9, 
+    //     end_time: "2026-01-07 00:15:00", // Tomorrow 12:15 AM (Technically < 3 hours)
+    //     image_path: "../img/pepper.webp" 
+    // },
+
+    // // --- LIVE AUCTIONS (More than 3 hours left) ---
+    // { 
+    //     auc_title: "Organic Tomato", 
+    //     base_price: 24, 
+    //     highest_bid: 50, 
+    //     bid_count: 4, 
+    //     end_time: "2026-01-07 10:00:00", // Tomorrow Morning (Live)
+    //     image_path: "../img/tomato.webp" 
+    // },
+    // { 
+    //     auc_title: "Organic Tomato", 
+    //     base_price: 24, 
+    //     highest_bid: 50, 
+    //     bid_count: 4, 
+    //     end_time: "2026-01-07 10:00:00", // Tomorrow Morning (Live)
+    //     image_path: "../img/tomato.webp" 
+    // },
+    // { 
+    //     auc_title: "Large Potatoes", 
+    //     base_price: 40, 
+    //     highest_bid: 120, 
+    //     bid_count: 12, 
+    //     end_time: "2026-01-07 00:35:00", 
+    //     image_path: "../img/potato.webp" 
+    // },
+    // { 
+    //     auc_title: "Large Potatoes", 
+    //     base_price: 40, 
+    //     highest_bid: 120, 
+    //     bid_count: 12, 
+    //     end_time: "2026-01-07 00:35:00", 
+    //     image_path: "../img/potato.webp" 
+    // },
+    // { 
+    //     auc_title: "Large Potatoes", 
+    //     base_price: 40, 
+    //     highest_bid: 120, 
+    //     bid_count: 12, 
+    //     end_time: "2026-01-07 00:35:00", 
+    //     image_path: "../img/potato.webp" 
+    // },
+    // { 
+    //     auc_title: "Large Potatoes", 
+    //     base_price: 40, 
+    //     highest_bid: 120, 
+    //     bid_count: 12, 
+    //     end_time: "2026-01-07 00:35:00", 
+    //     image_path: "../img/potato.webp" 
+    // },
+    // { 
+    //     auc_title: "Large Potatoes", 
+    //     base_price: 40, 
+    //     highest_bid: 120, 
+    //     bid_count: 12, 
+    //     end_time: "2026-01-07 00:35:00", 
+    //     image_path: "../img/potato.webp" 
+    // },
+    // { 
+    //     auc_title: "Fresh Onions", 
+    //     base_price: 234, 
+    //     highest_bid: 500, 
+    //     bid_count: 43, 
+    //     end_time: "2026-01-10 12:00:00", // 4 Days from now (Live)
+    //     image_path: "../img/onion.webp" 
+    // }
+    // ];
+    
     const $liveContainer = $("#liveAuction");
     const $endingContainer = $("#endingSoon");
     const THREE_HOURS_MS = 3 * 60 * 60 * 1000;
 
     data.forEach(function (cardData) {
-        //Card creation
-        
-        const $card = $("<div>");
-        
-        $card.addClass("card custom-card");
-        $card.attr("data-endtime", cardData.endTime);
+      //Card creation
+
+      const $card = $("<div>");
+
+      $card.addClass("card custom-card");
+      $card.attr("data-endtime", cardData.end_time);
+      $card.attr("id",cardData.auc_id)
 
       //Image creation
 
       const $img = $("<img>").addClass("card-img-top cardImg");
 
-      $img.attr("src", cardData.img);
+      $img.attr("src", cardData.image_path);
 
-      $img.attr("alt", cardData.title);
+      $img.attr("alt", cardData.auc_title);
 
       // Card body creation
 
@@ -216,26 +223,26 @@ $(document).ready(function () {
       const $h4 = $("<h4>")
         .addClass("card-title cardTitle")
 
-        .text(cardData.title);
+        .text(cardData.auc_title);
 
       // Prices
 
       const $price1 = $("<h6>")
         .addClass("fs-5 fw-bold cardLabel")
 
-        .text("Starting Price: " + cardData.base + " Rs");
+        .text("Starting Price: " + cardData.base_price + " Rs");
 
       const $price2 = $("<h6>")
         .addClass("fw-bold fs-5 cardLabel")
 
-        .text("Top Bid: " + cardData.highestBid + " Rs");
+        .text("Top Bid: " + cardData.highest_bid + " Rs");
 
       // Stats
 
       const $bidCount = $("<p>")
         .addClass("card-text mb-0 fs-5 cardBid")
-
-        .text("📊 " + cardData.bids + " bids Placed");
+        
+        .text("📊 " + cardData.bid_count + " bids Placed");
 
       const $timeText = $("<p>").addClass("card-text mb-2 fs-5 cardTime");
 
@@ -248,12 +255,16 @@ $(document).ready(function () {
       const $bidBtn = $("<button>")
         .addClass("btn btn-outline-success align-self-start mt-auto")
 
-        .text("Bid Now");
+        .text("Bid Now")
+
+        .click(bidButton())
 
       const $viewBtn = $("<button>")
         .addClass("btn btn-outline-success align-self-end mt-auto")
 
-        .text("View Details");
+        .text("View Details")
+
+        .click(viewDetails())
 
       $buttonDiv.append($bidBtn, $viewBtn);
 
@@ -267,7 +278,7 @@ $(document).ready(function () {
 
       // 2. Initial Placement Logic
       const now = new Date().getTime();
-      const diff = new Date(cardData.endTime).getTime() - now;
+      const diff = new Date(cardData.end_time).getTime() - now;
 
       $timeText.text("⏰ " + formatTime(diff));
 
@@ -288,14 +299,18 @@ $(document).ready(function () {
       updateAllCards();
       updateButtonVisibility();
     }, 1000);
-  }, 3000);
+  },"json")
+  .fail(function(jqXHR, textStatus, errorThrown) {
+    console.error("PHP Error:", errorThrown);
+    console.error("Response Text:", textStatus);
+});
 });
 
 function scrollContainer(containerId, direction) {
   const container = document.getElementById(containerId);
   const card = container.querySelector(".card");
   const cardWidth = card.offsetWidth;
-  const scrollAmt = cardWidth * 3 + 24;
+  const scrollAmt = cardWidth * 3 + 24; 
   if (direction === "left") {
     container.scrollBy({ left: -scrollAmt, behavior: "smooth" });
   } else {
