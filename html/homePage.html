@@ -143,78 +143,158 @@
         </div>
       </div>
 
-      <!-- Live Auction Section -->
-      <div class="p-3">
-        <h3>Live Auctions</h3>
-
-        
-        <div class="position-relative">
-          <button
-          class="btn btn-dark scrollButton left-btn"
-            onclick="scrollContainer('liveAuction','left')"
-            >
-            &lt
-          </button>
-
-          <div
-            class="d-flex flex-nowrap gap-4 scrollContainer position-relative pt-3" 
-            id="liveAuction"
-            >
-
-            <!-- Loader -->
-
-            <div class="w-100 d-flex justify-content-center align-items-center loadingSpinner">
-              <div class="spinner-border text-success" style="width: 3rem; height: 3rem;">
+      <!-- Search bar -->
+      <div class="container mt-4 mb-4">
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-8 col-lg-6">
+            <form class="d-flex" onsubmit="search(event)">
+              <div class="input-group shadow rounded-pill overflow-hidden border">
+                <span class="input-group-text bg-white border-0 ps-4">
+                  <img src="../img/searchbar-removebg-preview.png" alt="" style="width: 20; height: auto;">
+                </span>
                 
+                <input 
+                  class="form-control border-0 py-3 shadow-none" 
+                  type="search" 
+                  placeholder="Search auctions (e.g., Tomatoes, Wheat)..." 
+                  aria-label="Search"
+                  id="searchInput"
+                  name="auction"
+                >
+                
+                <button class="btn btn-success px-4 fw-bold" type="submit">
+                  Search
+                </button>
               </div>
-           </div>
-
+            </form>
           </div>
-
-          <button
-            class="btn btn-dark scrollButton right-btn"
-            onclick="scrollContainer('liveAuction','right')"
-          >
-            &gt
-          </button>
+        </div>
       </div>
 
-      <!-- Ending Auction Section -->
-      <div class="p-3">
-        <h3>Ending soon</h3>
+      <!-- Search result Div -->
+      <div id="searchResultsSection" class="container d-none min-vh-100">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h3 class="fw-bold text-success">Search Results</h3>
+            <span class="badge bg-secondary" id="resultCountBadge"></span>
+        </div>
+        
+        <div class="row g-4" id="searchResultsGrid"></div>
+        
+        <div id="noResultsMsg" class="text-center mt-5">
+            <h4 class="text-muted mt-3">No auctions found matching your search.</h4>
+            <button class="btn btn-outline-success mt-2" onclick="clearSearch()">View All Auctions</button>
+        </div>
+      </div>
 
-        <div class="position-relative">
-          <button
+     <!-- Main Auctions Div -->
+      <div id="mainAucContainer">
+        <!-- Live Auction Section -->
+        <div class="p-3">
+          <h3>Live Auctions</h3>
+
+          
+          <div class="position-relative">
+            <button
             class="btn btn-dark scrollButton left-btn"
-            onclick="scrollContainer('endingSoon','left')"
-          >
-            &lt
-          </button>
+              onclick="scrollContainer('liveAuction','left')"
+              >
+              &lt
+            </button>
 
-          <div
-            class="d-flex flex-nowrap scrollContainer position-relative gap-4 pt-3"
-            id="endingSoon"
-          >
-            
-            <!-- Loader -->
+            <div
+              class="d-flex flex-nowrap gap-4 scrollContainer position-relative pt-3" 
+              id="liveAuction"
+              >
 
-		        <div class="w-100 d-flex justify-content-center align-items-center loadingSpinner">
-              <div class="spinner-border text-success" style="width: 3rem; height: 3rem;" >
-            
-              </div>
+              <!-- Loader -->
+
+              <div class="w-100 d-flex justify-content-center align-items-center loadingSpinner">
+                <div class="spinner-border text-success" style="width: 3rem; height: 3rem;">
+                  
+                </div>
             </div>
 
-          </div>
-          <button
-            class="btn btn-dark scrollButton right-btn"
-            onclick="scrollContainer('endingSoon','right')"
-          >
-            &gt
-          </button>
+            </div>
 
+            <button
+              class="btn btn-dark scrollButton right-btn"
+              onclick="scrollContainer('liveAuction','right')"
+            >
+              &gt
+            </button>
+          </div>
+        </div>
+
+        <!-- Ending Auction Section -->
+        <div class="p-3">
+          <h3>Ending soon</h3>
+
+          <div class="position-relative">
+            <button
+              class="btn btn-dark scrollButton left-btn"
+              onclick="scrollContainer('endingSoon','left')"
+            >
+              &lt
+            </button>
+
+            <div
+              class="d-flex flex-nowrap scrollContainer position-relative gap-4 pt-3"
+              id="endingSoon"
+            >
+              
+              <!-- Loader -->
+
+              <div class="w-100 d-flex justify-content-center align-items-center loadingSpinner">
+                <div class="spinner-border text-success" style="width: 3rem; height: 3rem;" >
+              
+                </div>
+              </div>
+
+            </div>
+            <button
+              class="btn btn-dark scrollButton right-btn"
+              onclick="scrollContainer('endingSoon','right')"
+            >
+              &gt
+            </button>
+
+        </div>
+        </div>
       </div>
     </div>
 
+    <!-- bid modal -->
+    <div class="modal fade" id="bidModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header bg-success text-white">
+            <h5 class="modal-title">Place Your Bid</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form id="bidForm">
+              <input type="hidden" id="modalAucId" name="auc_id">
+              
+              <h4 id="modalAucTitle" class="text-center mb-3"></h4>
+              
+              <div class="mb-3">
+                <label class="form-label">Current Highest Bid</label>
+                <input type="text" class="form-control" id="modalHighestBid" readonly>
+              </div>
+              
+              <div class="mb-3">
+                <label class="form-label">Your Bid Amount (Rs)</label>
+                <input type="number" class="form-control" name="bid_amount" required placeholder="Enter amount higher than current bid">
+              </div>
+              
+              <div class="d-grid">
+                <button type="submit" class="btn btn-success">Confirm Bid</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
     <script src="../js/jquery/jquery-3.6.0.min.js"></script>
     <script src="../js/bootstrap/bootstrap.bundle.js"></script>
     <!-- <script src="js/bootstrap/bootstrap.min.js"></script> -->

@@ -1,17 +1,6 @@
+let auctions = []
 $(document).ready(function () {
-  function formatTime(ms) {
-    if (ms <= 0) return "Expired";
-    const parts = [];
-    const seconds = Math.floor((ms / 1000) % 60);
-    const minutes = Math.floor((ms / (1000 * 60)) % 60);
-    const hours = Math.floor((ms / (1000 * 60 * 60)) % 24);
-    const days = Math.floor(ms / (1000 * 60 * 60 * 24));
-
-    if (days > 0) parts.push(days + "d");
-    if (hours > 0) parts.push(hours + "h");
-    parts.push(minutes + "m " + seconds + "s");
-    return parts.join(" ");
-  }
+  
 
   function updateButtonVisibility() {
     // Live Auction Buttons
@@ -51,6 +40,9 @@ $(document).ready(function () {
         return; // Stop processing this card
       }
 
+      if ($card.closest("#searchResultsGrid").length > 0) {
+            return; // STOP! Don't move this card, just update its time.
+      }
       // 3. Handle Moving Logic
       const parentId = $card.parent().attr("id");
 
@@ -70,13 +62,17 @@ $(document).ready(function () {
     });
   }
 
-  function viewDetails(){
-    console.log("vew button")
-  }
+  $("#bidModal").on("show.bs.modal",function(event){
+    const $button = $(event.relatedTarget)//button who trigger modal to open
+    const aucId = $button.data("aucId")
+    const aucTitle = $button.data("aucTitle")
+    const aucHighestBid = $button.data("aucHighestBid")
 
-  function bidButton(){
-    console.log("bid button")
-  }
+    const $modal = $(this)
+    $modal.find("#modalAucId").val(aucId)
+    $modal.find("#modalAucTitle").text(aucTitle)
+    $modal.find("#modalHighestBid").val(aucHighestBid+" Rs")
+  })
 
   $.get("../php/homePage.php", function (data) {
     // const data = [
@@ -190,13 +186,47 @@ $(document).ready(function () {
     //     image_path: "../img/onion.webp" 
     // }
     // ];
-    
-    const $liveContainer = $("#liveAuction");
-    const $endingContainer = $("#endingSoon");
-    const THREE_HOURS_MS = 3 * 60 * 60 * 1000;
+    auctions = data
+    //dislplay cards for homepage
+    renderAuctions(data)
 
-    data.forEach(function (cardData) {
-      //Card creation
+    $(".loadingSpinner").remove();
+
+    updateButtonVisibility();
+
+    setInterval(function () {
+      updateAllCards();
+      updateButtonVisibility();
+    }, 1000);
+  },"json")
+  .fail(function(jqXHR, textStatus, errorThrown) {
+    console.error("PHP Error:", errorThrown);
+    console.error("Response Text:", textStatus);
+  });
+});
+
+function formatTime(ms) {
+    if (ms <= 0) return "Expired";
+    const parts = [];
+    const seconds = Math.floor((ms / 1000) % 60);
+    const minutes = Math.floor((ms / (1000 * 60)) % 60);
+    const hours = Math.floor((ms / (1000 * 60 * 60)) % 24);
+    const days = Math.floor(ms / (1000 * 60 * 60 * 24));
+
+    if (days > 0) parts.push(days + "d");
+    if (hours > 0) parts.push(hours + "h");
+    parts.push(minutes + "m " + seconds + "s");
+    return parts.join(" ");
+  }
+
+ function viewDetails(){
+    console.log("vew button")
+  }
+
+
+//for creating cards dynamically
+function createCards(cardData){
+     //Card creation
 
       const $card = $("<div>");
 
@@ -257,14 +287,19 @@ $(document).ready(function () {
 
         .text("Bid Now")
 
-        .click(bidButton())
+        .attr("data-bs-toggle", "modal")
+        .attr("data-bs-target","#bidModal")
+        // store auction details in data attributes to know on which auction bid is being placed
+        .attr("data-auc-id", cardData.auc_id)
+        .attr("data-auc-title", cardData.auc_title)
+        .attr("data-auc-highest-bid", cardData.highest_bid)
 
       const $viewBtn = $("<button>")
         .addClass("btn btn-outline-success align-self-end mt-auto")
 
         .text("View Details")
 
-        .click(viewDetails())
+        .click(viewDetails)
 
       $buttonDiv.append($bidBtn, $viewBtn);
 
@@ -277,35 +312,89 @@ $(document).ready(function () {
       $card.append($img, $cardBody);
 
       // 2. Initial Placement Logic
+      const THREE_HOURS_MS = 3 * 60 * 60 * 1000;
       const now = new Date().getTime();
       const diff = new Date(cardData.end_time).getTime() - now;
 
       $timeText.text("⏰ " + formatTime(diff));
+      if (diff <= THREE_HOURS_MS) { 
+      $timeText.addClass("text-danger");
+    } else {
+      $timeText.addClass("text-success");
+    }   
+    return $card;
+}
 
-      if (diff <= THREE_HOURS_MS) {
-        $timeText.addClass("text-danger");
-        $endingContainer.append($card);
-      } else {
-        $timeText.addClass("text-success");
-        $liveContainer.append($card);
-      }
-    });
+//for rendering cards on homepage
+function renderAuctions(data){
+  const $liveContainer = $("#liveAuction");
+  const $endingContainer = $("#endingSoon");
+  const THREE_HOURS_MS = 3 * 60 * 60 * 1000;
+  const now = new Date().getTime();
 
-    $(".loadingSpinner").remove();
+  data.forEach(function (cardData) {
+    const $card = createCards(cardData);
+    const diff = new Date(cardData.end_time).getTime() - now;
+    if (diff <= THREE_HOURS_MS) { 
+      $endingContainer.append($card);
+    } else {
+      $liveContainer.append($card);
+    }   
+  });  
+}
 
-    updateButtonVisibility();
+//for search bar query
+function search(event){
+  event.preventDefault();
+  const $auctionConainer = $("#mainAucContainer")
+  const $searchContainer = $("#searchResultsSection")
+  const query = event.target.auction.value.toLowerCase().trim()
+  if(query){
+    $auctionConainer.addClass("d-none")
+    $searchContainer.removeClass("d-none")
+    const filteredAuctions = auctions.filter(auc => auc.auc_title.toLowerCase().includes(query))
+    renderSearchResults(filteredAuctions)
+  }else{
+    clearSearch()
+  }
+}
 
-    setInterval(function () {
-      updateAllCards();
-      updateButtonVisibility();
-    }, 1000);
-  },"json")
-  .fail(function(jqXHR, textStatus, errorThrown) {
-    console.error("PHP Error:", errorThrown);
-    console.error("Response Text:", textStatus);
+// Detect when the user clears the search input (including clicking the built-in 'x')
+$("#searchInput").on("input", function() {
+    // If the text box is empty...
+    if ($(this).val().trim() === "") {
+      clearSearch();
+    }
 });
-});
 
+//to switch back to main auction view from search results
+function clearSearch(){
+  $("#searchInput").val("")
+  $("#searchResultsSection").addClass("d-none");
+  $("#mainAucContainer").removeClass("d-none");
+}
+
+//to show cards in search results
+function renderSearchResults(data){
+  const $resultBadge = $("#resultCountBadge")
+  const $noResultMsg = $("#noResultsMsg")
+  const $resultsGrid = $("#searchResultsGrid")
+  $resultsGrid.empty()
+  $resultBadge.text(data.length+" Results Found")
+  if (data.length !== 0){
+    $noResultMsg.addClass("d-none")
+    data.forEach(function(cardData){
+      const $card = createCards(cardData)
+      const $colWrapper = $("<div>").addClass("col-12 col-sm-6 col-md-4 col-lg-3");
+      $colWrapper.append($card);
+      $resultsGrid.append($colWrapper);
+    })
+  }else{
+    $noResultMsg.removeClass("d-none")
+  }
+}
+
+//for sliding cards on homepage
 function scrollContainer(containerId, direction) {
   const container = document.getElementById(containerId);
   const card = container.querySelector(".card");

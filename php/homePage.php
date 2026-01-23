@@ -14,8 +14,7 @@ try {
                 auc_title, 
                 base_price, 
                 highest_bid,
-                bid_count,   
-                auc_status,
+                bid_count, 
                 end_time,    
                 image_path       
             FROM auctions 
