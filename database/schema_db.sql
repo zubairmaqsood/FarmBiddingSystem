@@ -11,6 +11,7 @@ CREATE TABLE users (
     password VARCHAR(255) NOT NULL,
     ph_no VARCHAR(20),  -- Nullable (Admins can leave it empty)
     role ENUM('admin', 'farmer', 'buyer') NOT NULL,
+    cnic varchar(15),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -19,6 +20,9 @@ CREATE TABLE users (
 CREATE TABLE farmers (
     user_id INT PRIMARY KEY, 
     registry_file_name VARCHAR(100),
+    city varchar(50) not null
+    farm_location VARCHAR(100) not null,
+    farm_size decimal(10,2) not null,
     FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
 );  
 
@@ -26,7 +30,11 @@ CREATE TABLE farmers (
 -- 'user_id' is both PK and FK.
 CREATE TABLE buyers (
     user_id INT PRIMARY KEY,
-    document_path VARCHAR(255), -- Storing path to the file, not the file itself
+    document_path VARCHAR(255),
+    buyer_type enum('Individual', 'Wholesaler','Retailer','Exporter') NOT NULL,
+    company_name VARCHAR(100),
+    company_address VARCHAR(255),
+    company_type enum("Private Limited","Public Limited","Partnership","Sole Proprietorship"),
     FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
 );
 
@@ -40,13 +48,15 @@ CREATE TABLE auctions (
     image_path VARCHAR(255),
     auc_qty DECIMAL(10,2) NOT NULL,
     base_price DECIMAL(10,2) NOT NULL,
-    auc_status ENUM('Live', 'Ending Soon', 'Expired') DEFAULT 'Live',
+    auc_status ENUM('Live', 'Expired') DEFAULT 'Live',
     highest_bid DECIMAL(10,2) DEFAULT 0.00,
+    highest_bidder_id INT,
     start_time DATETIME DEFAULT CURRENT_TIMESTAMP,
     end_time DATETIME NOT NULL,
     bid_count int not null default 0
     
     FOREIGN KEY (user_id) REFERENCES farmers(user_id) ON DELETE CASCADE
+    FOREIGN KEY (highest_bidder_id) REFERENCES buyers(user_id)
 );
 
 -- 5. BIDS TABLE

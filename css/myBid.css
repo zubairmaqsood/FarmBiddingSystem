@@ -1,0 +1,25 @@
+body {
+    background: linear-gradient(135deg, #1b4332 0%, #2d6a4f 100%); /* Green Theme */
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.title {
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.card {
+    transition: transform 0.2s;
+    border-radius: 12px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* Badge Colors */
+.badge-winning { background-color: #198754; } /* Green */
+.badge-outbid { background-color: #ffc107; color: #000; } /* Yellow */
+.badge-lost { background-color: #dc3545; } /* Red */
+.badge-closed { background-color: #6c757d; } /* Grey */

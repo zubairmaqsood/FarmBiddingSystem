@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Activity - Farm Auction</title>
+    <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/myBid.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+<body class="d-flex align-items-center">
+
+<div class="container py-4">
+
+    <div class="row justify-content-center mb-4">
+        <div class="col-lg-10 text-center">
+            <h1 class="title fw-bold" id="pageTitle">My Activity</h1>
+            <p class="title opacity-75" id="pageSubtitle">Loading...</p>
+        </div>
+    </div>
+
+    <div id="loadingSpinner" class="text-center text-white">
+        <div class="spinner-border" role="status"></div>
+        <p class="mt-2">Fetching your data...</p>
+    </div>
+
+    <div id="errorContainer" class="row justify-content-center d-none">
+        <div class="col-lg-8">
+            <div class="alert alert-danger text-center" id="errorMessage"></div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center g-4" id="bidsContainer">
+    </div>
+
+</div>
+
+<script src="../js/jquery/jquery-3.6.0.min.js"></script>
+<script src="../js/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="../js/myBid.js"></script> </body>
+</html>

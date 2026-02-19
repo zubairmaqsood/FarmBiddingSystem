@@ -38,10 +38,10 @@
               <a class="nav-link nav-link-underline me-3" href="homePage.html">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link nav-link-underline me-3" href="#">About Us</a>
+              <a class="nav-link nav-link-underline me-3" href="aboutUs.html">About Us</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link nav-link-underline me-3" href="biddingpage.html">My Bid</a>
+              <a class="nav-link nav-link-underline me-3" href="myBid.html">My Bid</a>
             </li>
             <li class="nav-item">
               <a class="nav-link nav-link-underline me-3" href="#"
@@ -51,7 +51,7 @@
           </ul>
 
           <div class="d-flex">
-            <button class="btn btn-outline-success">logout</button>
+            <button class="btn btn-outline-success" id="navbarButton">logout</button>
           </div>
 
         </div>
@@ -295,6 +295,34 @@
         </div>
       </div>
     </div>
+
+    <!-- login modal for unauthorized user -->
+    <div class="modal fade" id="loginPromptModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-center p-4">
+          <div class="modal-header border-0 pb-0">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3 text-primary">
+              <i class="bi bi-shield-lock-fill" style="font-size: 3rem;"></i>
+            </div>
+            <h4 class="fw-bold">Login Required</h4>
+            <p class="text-muted">You need to be a registered Buyer to place a bid on this item.</p>
+            
+            <div class="d-grid gap-2 col-10 mx-auto mt-4">
+              <a href="login.html" class="btn btn-primary btn-lg">
+                Log In
+              </a>
+              <a href="signup.html" class="btn btn-outline-secondary">
+                Create an Account
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script src="../js/jquery/jquery-3.6.0.min.js"></script>
     <script src="../js/bootstrap/bootstrap.bundle.js"></script>
     <!-- <script src="js/bootstrap/bootstrap.min.js"></script> -->

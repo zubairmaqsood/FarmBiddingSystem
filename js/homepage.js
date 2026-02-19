@@ -1,6 +1,36 @@
 let auctions = []
 $(document).ready(function () {
-  
+  const $navBtn = $("#navbarButton");
+  const token = localStorage.getItem("token");
+
+  // A. Set Button Text on Load
+  if (token) {
+    $navBtn.text("Logout");
+    // Optional: Add a visual cue, like making it red for logout
+  } else {
+    $navBtn.text("Login");
+  }
+
+  // B. Handle Button Click
+  $navBtn.off("click").on("click", function (e) {
+    e.preventDefault();
+    
+    // Check token again at the moment of clicking
+    if (localStorage.getItem("token")) {
+      // --- LOGOUT ACTION ---
+      if (confirm("Are you sure you want to log out?")) {
+        // Clear stored data
+        localStorage.removeItem("token");
+        localStorage.removeItem("user_role");
+        localStorage.removeItem("user_name");
+        
+        $(this).text("Login");
+      }
+    } else {
+      // --- LOGIN ACTION ---
+      window.location.href = "login.html";
+    }
+  });
 
   function updateButtonVisibility() {
     // Live Auction Buttons
@@ -75,117 +105,7 @@ $(document).ready(function () {
   })
 
   $.get("../php/homePage.php", function (data) {
-    // const data = [
-    // { 
-    //     auc_title: "Expired Garlic", 
-    //     base_price: 40, 
-    //     highest_bid: 120, 
-    //     bid_count: 12, 
-    //     end_time: "2026-01-05 11:00:00", // Yesterday (Expired)
-    //     image_path: "../img/garlic.webp" 
-    // },
-    // { 
-    //     auc_title: "Sold Out Spinach", 
-    //     base_price: 15, 
-    //     highest_bid: 30, 
-    //     bid_count: 8, 
-    //     end_time: "2026-01-06 18:00:00", // Today at 6:00 PM (Expired 3 hours ago)
-    //     image_path: "../img/spinach.webp" 
-    // },
-
-    // // --- ENDING SOON (Less than 3 hours from 9:25 PM) ---
-    // { 
-    //     auc_title: "Red Chilies", 
-    //     base_price: 50, 
-    //     highest_bid: 85, 
-    //     bid_count: 15, 
-    //     // 2 Minutes from now (9:34 PM)
-    //     end_time: "2026-01-06 21:34:00", 
-    //     image_path: "../img/chili.webp" 
-    // },
-    // { 
-    //     auc_title: "Fresh Coriander", 
-    //     base_price: 20, 
-    //     highest_bid: 45, 
-    //     bid_count: 22, 
-    //     end_time: "2026-01-06 23:55:00", // Today 11:55 PM (~2.5 hours left)
-    //     image_path: "../img/coriander.webp" 
-    // },
-    // { 
-    //     auc_title: "Bell Peppers", 
-    //     base_price: 100, 
-    //     highest_bid: 150, 
-    //     bid_count: 9, 
-    //     end_time: "2026-01-07 00:15:00", // Tomorrow 12:15 AM (Technically < 3 hours)
-    //     image_path: "../img/pepper.webp" 
-    // },
-
-    // // --- LIVE AUCTIONS (More than 3 hours left) ---
-    // { 
-    //     auc_title: "Organic Tomato", 
-    //     base_price: 24, 
-    //     highest_bid: 50, 
-    //     bid_count: 4, 
-    //     end_time: "2026-01-07 10:00:00", // Tomorrow Morning (Live)
-    //     image_path: "../img/tomato.webp" 
-    // },
-    // { 
-    //     auc_title: "Organic Tomato", 
-    //     base_price: 24, 
-    //     highest_bid: 50, 
-    //     bid_count: 4, 
-    //     end_time: "2026-01-07 10:00:00", // Tomorrow Morning (Live)
-    //     image_path: "../img/tomato.webp" 
-    // },
-    // { 
-    //     auc_title: "Large Potatoes", 
-    //     base_price: 40, 
-    //     highest_bid: 120, 
-    //     bid_count: 12, 
-    //     end_time: "2026-01-07 00:35:00", 
-    //     image_path: "../img/potato.webp" 
-    // },
-    // { 
-    //     auc_title: "Large Potatoes", 
-    //     base_price: 40, 
-    //     highest_bid: 120, 
-    //     bid_count: 12, 
-    //     end_time: "2026-01-07 00:35:00", 
-    //     image_path: "../img/potato.webp" 
-    // },
-    // { 
-    //     auc_title: "Large Potatoes", 
-    //     base_price: 40, 
-    //     highest_bid: 120, 
-    //     bid_count: 12, 
-    //     end_time: "2026-01-07 00:35:00", 
-    //     image_path: "../img/potato.webp" 
-    // },
-    // { 
-    //     auc_title: "Large Potatoes", 
-    //     base_price: 40, 
-    //     highest_bid: 120, 
-    //     bid_count: 12, 
-    //     end_time: "2026-01-07 00:35:00", 
-    //     image_path: "../img/potato.webp" 
-    // },
-    // { 
-    //     auc_title: "Large Potatoes", 
-    //     base_price: 40, 
-    //     highest_bid: 120, 
-    //     bid_count: 12, 
-    //     end_time: "2026-01-07 00:35:00", 
-    //     image_path: "../img/potato.webp" 
-    // },
-    // { 
-    //     auc_title: "Fresh Onions", 
-    //     base_price: 234, 
-    //     highest_bid: 500, 
-    //     bid_count: 43, 
-    //     end_time: "2026-01-10 12:00:00", // 4 Days from now (Live)
-    //     image_path: "../img/onion.webp" 
-    // }
-    // ];
+   
     auctions = data
     //dislplay cards for homepage
     renderAuctions(data)
@@ -205,6 +125,7 @@ $(document).ready(function () {
   });
 });
 
+
 function formatTime(ms) {
     if (ms <= 0) return "Expired";
     const parts = [];
@@ -217,11 +138,7 @@ function formatTime(ms) {
     if (hours > 0) parts.push(hours + "h");
     parts.push(minutes + "m " + seconds + "s");
     return parts.join(" ");
-  }
-
- function viewDetails(){
-    console.log("vew button")
-  }
+}
 
 
 //for creating cards dynamically
@@ -255,6 +172,11 @@ function createCards(cardData){
 
         .text(cardData.auc_title);
 
+        // Quantity
+      const $qty = $("<h6>")
+        .addClass("text-muted mb-2") // Grey color, small margin
+        .html("<i class='bi bi-box-seam'></i> Qty: " + cardData.auc_qty + " Kg");
+
       // Prices
 
       const $price1 = $("<h6>")
@@ -282,30 +204,20 @@ function createCards(cardData){
 
       // Button
 
-      const $bidBtn = $("<button>")
-        .addClass("btn btn-outline-success align-self-start mt-auto")
-
-        .text("Bid Now")
-
-        .attr("data-bs-toggle", "modal")
-        .attr("data-bs-target","#bidModal")
-        // store auction details in data attributes to know on which auction bid is being placed
-        .attr("data-auc-id", cardData.auc_id)
-        .attr("data-auc-title", cardData.auc_title)
-        .attr("data-auc-highest-bid", cardData.highest_bid)
-
       const $viewBtn = $("<button>")
         .addClass("btn btn-outline-success align-self-end mt-auto")
 
         .text("View Details")
 
-        .click(viewDetails)
+        .click(function(){
+          window.location.href = "viewBid.html?aucId="+cardData.auc_id
+        })
 
-      $buttonDiv.append($bidBtn, $viewBtn);
+      $buttonDiv.append($viewBtn);
 
       // Append all childrens to card body
 
-      $cardBody.append($h4, $price1, $price2, $bidCount, $timeText, $buttonDiv);
+      $cardBody.append($h4, $price1, $price2,$qty, $bidCount, $timeText, $buttonDiv);
 
       // Append Image and Body into Main Card
 
@@ -333,8 +245,12 @@ function renderAuctions(data){
   const now = new Date().getTime();
 
   data.forEach(function (cardData) {
-    const $card = createCards(cardData);
     const diff = new Date(cardData.end_time).getTime() - now;
+    if (diff <= 0) {
+      return; // This acts like 'continue' in a forEach loop
+    }
+    const $card = createCards(cardData);
+
     if (diff <= THREE_HOURS_MS) { 
       $endingContainer.append($card);
     } else {

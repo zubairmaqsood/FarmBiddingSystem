@@ -1,0 +1,82 @@
+/* Reset and body styling */
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f8;
+}
+
+/* Card styling */
+.signup-card {
+    background: #ffffff;
+    padding: 3rem; /* Bootstrap spacing equivalents */
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Card header */
+.signup-card h3 {
+    font-weight: bold;
+    color: #0b5f2a;
+}
+
+/* Form inputs */
+.form-control {
+    height: 45px;
+    font-size: 14px;
+}
+
+/* Textarea */
+textarea.form-control {
+    resize: none;
+    height: auto;
+}
+
+/* Button styling */
+.btn-success {
+    height: 45px;
+    font-size: 16px;
+    background-color: #0b5f2a;
+    border: none;
+}
+
+.btn-success:hover {
+    background-color: #09441a;
+}
+
+/* Scrollbar styling */
+.signup-card::-webkit-scrollbar {
+    width: 8px;
+}
+
+.signup-card::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 5px;
+}
+
+.signup-card::-webkit-scrollbar-thumb {
+    background: #0b5f2a;
+    border-radius: 5px;
+}
+
+.signup-card::-webkit-scrollbar-thumb:hover {
+    background: #09441a;
+}
+
+/* Checkbox label */
+.form-check-label {
+    font-size: 14px;
+}
+
+/* Login link */
+p.text-center a {
+    color: #0b5f2a;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+p.text-center a:hover {
+    text-decoration: underline;
+}
+
+/* Bootstrap spacing utility classes are enough for responsive padding/margins */

@@ -1,0 +1,21 @@
+body{
+    background-color: #D3E8BD;
+}
+
+.detail-img {
+  max-height: 500px;
+  object-fit: cover;
+  border-radius: 15px;
+  width: 100%;
+}
+.price-card {
+  background-color: #f8f9fa;
+  border-left: 5px solid #198754;
+}
+/* Loader styles */
+#loadingSpinner {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

@@ -1,51 +1,64 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login Page</title>
 
-    <link rel="stylesheet" href="../css/bootstrap/bootstrap.css">
-    <link rel="stylesheet" href="../css/loginPage.css">
-</head>
-<body class="d-flex align-items-center justify-content-center min-vh-100">
-
-<div class="container login-container w-100">
-    <div class="row">
-
-        <!-- Left Side div -->
+    <link rel="stylesheet" href="../css/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" href="../css/login.css" />
+  </head>
+  <body class="d-flex align-items-center justify-content-center min-vh-100">
+    <div class="container login-container w-100">
+      <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-12 left">
-            <h2>Welcome</h2>
-            <h1>Log In</h1>
+          <h2>Welcome</h2>
+          <h1>Log In</h1>
 
-            <form>
-                <label for="email">Username</label>
-                <input type="email" id="email" placeholder="Your email" required>
+          <form id="loginForm">
+            <div id="errorMsg" class="alert alert-danger d-none"></div>
 
-                <label for="password">Password</label>
-                <input type="password" id="password" placeholder="Your password" required>
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Your email"
+              required
+            />
 
-                <a href="#" class="forgot">Forgot password?</a>
+            <label for="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Your password"
+              required
+            />
 
-                <button type="submit" class="login-btn">Log In</button>
-            </form>
+            <a href="#" class="forgot">Forgot password?</a>
 
-            <p class="signup-text">
-                Don't have an account? <a href="#">Sign up</a>
-            </p>
+            <button type="submit" class="login-btn" id="loginBtn">
+              Log In
+            </button>
+          </form>
+
+          <p class="signup-text">
+            Don’t have an account? <a href="signup.html">Sign up</a>
+          </p>
         </div>
 
-        <!-- Right Side div -->
         <div class="col-lg-6 col-md-6 d-none d-md-flex right">
-            <div class="overlay-content">
-                <h2>Farmer Bidding System</h2>
-                <h3>Get the best price</h3>
-                <p>Best quality food at the best price.</p>
-            </div>
+          <div class="overlay-content">
+            <h2>Farm Bidding System</h2>
+            <h3>Get the best price</h3>
+            <p>Best quality food at the best price.</p>
+          </div>
         </div>
-
+      </div>
     </div>
-</div>
 
-</body>
+    <script src="../js/jquery/jquery-3.6.0.min.js"></script>
+    <script src="../js/login.js"></script>
+  </body>
 </html>

@@ -16,6 +16,12 @@ try {
     // This means $row['auc_name'] instead of $row[0]
     $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
+    $sqlAutoClose = "UPDATE auctions 
+                     SET auc_status = 'Expired' 
+                     WHERE end_time <= NOW() 
+                     AND auc_status = 'active'";
+    $conn->query($sqlAutoClose);
+
 } catch(PDOException $e) {
     // 4. Handle Connection Errors
     // We send a JSON error so your JavaScript .fail() function catches it

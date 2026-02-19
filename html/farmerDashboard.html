@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Bids - Farm Auction System</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css" />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Page-Specific CSS -->
+    <link rel="stylesheet" href="../css/farmerDashboard.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <!-- Page Header -->
+      <div class="page-header">
+        <h1 class="page-title">
+          <i class="fas fa-tractor text-success"></i> Farmer Dashboard
+        </h1>
+        <p class="page-subtitle">Manage your auction listings</p>
+      </div>
+
+      <!-- Tutorial Section (shown when no bids) -->
+      <div id="tutorialSection" class="tutorial-section">
+        <div class="tutorial-icon">
+          <i class="fas fa-rocket"></i>
+        </div>
+        <h2 class="tutorial-title">Welcome to Farmer Dashboard!</h2>
+        <p class="tutorial-text">
+          Create your first auction listing and start selling your farm
+          equipment.<br />
+          It's quick, easy, and free to get started!
+        </p>
+
+        <div class="tutorial-steps">
+          <div class="tutorial-step">
+            <div class="tutorial-step-number">1</div>
+            <p class="tutorial-step-text">Click the + Card below</p>
+          </div>
+          <div class="tutorial-step">
+            <div class="tutorial-step-number">2</div>
+            <p class="tutorial-step-text">Fill in your item details</p>
+          </div>
+          <div class="tutorial-step">
+            <div class="tutorial-step-number">3</div>
+            <p class="tutorial-step-text">Publish & start receiving bids!</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bids Grid -->
+      <div class="bids-grid" id="bidsGrid">
+        <!-- Plus Card (Always visible) -->
+        <div class="plus-card" id="openAuctionModalBtn">
+          <i class="fas fa-plus-circle plus-icon"></i>
+          <p class="plus-text">Create New Bid</p>
+        </div>
+
+        <!-- User's bid cards will be rendered here -->
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="bidFormModal"
+      tabindex="-1"
+      aria-labelledby="formModalTitle"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header bg-success text-white">
+            <h5 class="modal-title" id="formModalTitle">
+              <i class="fas fa-plus-circle"></i> Create New Auction
+            </h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+
+          <div class="modal-body">
+            <div
+              id="modalErrorMsg"
+              class="alert alert-danger d-none text-center"
+            ></div>
+
+            <form id="bidForm" enctype="multipart/form-data">
+              <div class="mb-3">
+                <label class="form-label fw-bold"
+                  >Item Name <span class="text-danger">*</span></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="aucTitle"
+                  name="auc_title"
+                  required
+                  placeholder="e.g., Fresh Wheat Stock"
+                />
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label class="form-label fw-bold"
+                    >Starting Price (Rs)
+                    <span class="text-danger">*</span></label
+                  >
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="basePrice"
+                    name="base_price"
+                    required
+                    min="1"
+                    placeholder="5000"
+                  />
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label class="form-label fw-bold"
+                    >Quantity (Kg) <span class="text-danger">*</span></label
+                  >
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="aucQty"
+                    name="auc_qty"
+                    required
+                    min="1"
+                    placeholder="100"
+                  />
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label fw-bold"
+                  >Auction End Date <span class="text-danger">*</span></label
+                >
+                <input
+                  type="datetime-local"
+                  class="form-control"
+                  id="endTime"
+                  name="end_time"
+                  required
+                />
+                <small class="text-muted"
+                  >Must be at least 15 days from today.</small
+                >
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label fw-bold"
+                  >Description <span class="text-danger">*</span></label
+                >
+                <textarea
+                  class="form-control"
+                  id="aucDesc"
+                  name="auc_desc"
+                  rows="3"
+                  required
+                  placeholder="Describe quality, condition, etc..."
+                ></textarea>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label fw-bold"
+                  >Item Image <span class="text-danger">*</span></label
+                >
+                <input
+                  type="file"
+                  class="form-control"
+                  id="imageInput"
+                  name="item_image"
+                  accept="image/*"
+                />
+
+                <div class="mt-3 text-center d-none" id="previewContainer">
+                  <img
+                    id="imagePreview"
+                    src=""
+                    alt="Preview"
+                    class="img-thumbnail"
+                    style="max-height: 200px"
+                  />
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cancel
+            </button>
+            <button
+              type="submit"
+              form="bidForm"
+              class="btn btn-success px-4"
+              id="saveBtn"
+            >
+              <i class="fas fa-rocket"></i> Publish Auction
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../js/jquery/jquery-3.6.0.min.js"></script>
+    <script src="../js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="../js/farmerDashboard.js"></script>
+  </body>
+</html>

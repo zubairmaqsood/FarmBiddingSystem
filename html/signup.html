@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup Page</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="../css/bootstrap/bootstrap.css">
+  <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../css/signup.css">
+</head>
+<body>
+
+<div class="container py-3">
+  <div class="row justify-content-center align-items-center min-vh-100">
+    <div class="col-lg-6 col-md-8 col-sm-10">
+      <div class="signup-card">
+        <h3 class="text-center mb-4">Signup</h3>
+
+        <form id="signupForm">
+  <div class="mb-3">
+    <select class="form-control" id="userType" name="userType" required>
+      <option value="">Select User Type</option>
+      <option value="buyer">Buyer</option>
+      <option value="farmer">Farmer</option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <input type="text" class="form-control" id="fullName" name="fullName" placeholder="Full Name" required>
+  </div>
+
+  <div class="mb-3">
+    <input type="text" class="form-control" id="cnic" name="cnic" placeholder="CNIC (e.g., 12345-1234567-1)" required>
+  </div>
+
+  <div class="mb-3">
+    <input type="email" class="form-control" id="email" name="email" placeholder="Email Address" required>
+  </div>
+
+  <div class="mb-3">
+    <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone Number" required>
+  </div>
+
+  <div class="mb-3">
+  <label class="form-label">Password</label> <div class="input-group">
+    <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+    <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+      <i class="bi bi-eye"></i>
+    </button>
+  </div>
+</div>
+
+<div class="mb-3">
+  <label class="form-label">Confirm Password</label>
+  <div class="input-group">
+    <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password" required>
+    <button class="btn btn-outline-secondary" type="button" id="toggleConfirmPassword">
+      <i class="bi bi-eye"></i>
+    </button>
+  </div>
+</div>
+
+  <div id="buyerFields" style="display:none;">
+    <div class="mb-3">
+      <select class="form-control" id="buyerType" name="buyerType">
+        <option value="">Select Buyer Type</option>
+        <option value="Individual">Individual</option>
+        <option value="Wholesaler">Wholesaler</option>
+        <option value="Retailer">Retailer</option>
+        <option value="Exporter">Exporter</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <input type="text" class="form-control" id="companyName" name="companyName" placeholder="Company Name (if any)">
+    </div>
+    <div class="mb-3">
+      <textarea class="form-control" id="companyAddress" name="companyAddress" rows="2" placeholder="Company Address"></textarea>
+    </div>
+    <div class="mb-3">
+      <select class="form-control" id="companyType" name="companyType">
+        <option value="">Select Company Type</option>
+        <option value="Private Limited">Private Limited</option>
+        <option value="Public Limited">Public Limited</option>
+        <option value="Sole Proprietorship">Sole Proprietorship</option>
+        <option value="Partnership">Partnership</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Upload Business Registration Document  <span style="color: red;">5MB max</span></label>
+      <input type="file" class="form-control" id="businessDoc" name="businessDoc">
+    </div>
+  </div>
+
+  <div id="farmerFields" style="display:none;">
+    <div class="mb-3">
+      <textarea class="form-control" id="farmLocation" name="farmLocation" rows="2" placeholder="Farm Location"></textarea>
+    </div>
+    <div class="mb-3">
+      <input type="text" class="form-control" id="farmSize" name="farmSize" placeholder="Farm Size (acres)">
+    </div>
+    <div class="mb-3">
+      <input type="text" class="form-control" id="city" name="city" placeholder="City">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Upload Registry <span style="color: red;">5MB max</span></label>
+      <input type="file" class="form-control" id="registryFile" name="registryFile">
+    </div>
+  </div>
+
+  <div class="d-grid">
+    <button type="submit" class="btn btn-success" id="signupBtn">Sign Up</button>
+  </div>
+
+  <p class="text-center mt-3 mb-0">
+    Already have an account? <a href="login.html">Login</a>
+  </p>
+</form>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS -->
+ <script src="../js/jquery/jquery-3.6.0.min.js"></script>
+<script src="../js/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="../js/signup.js"></script>
+
+
+</body>
+</html>

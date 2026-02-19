@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auction Details</title>
+    
+    <link href="../css/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/viewBid.css">
+    
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success mb-4">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="homePage.html">
+                <i class="bi bi-arrow-left"></i> Back to Auctions
+            </a>
+        </div>
+    </nav>
+
+    <div id="loadingSpinner" class="text-center">
+        <div class="spinner-border text-success" role="status" style="width: 3rem; height: 3rem;">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+
+    <div id="errorContainer" class="container text-center mt-5 d-none">
+        <div class="card border-danger shadow-sm w-50 mx-auto">
+            <div class="card-body py-5">
+                <i class="bi bi-exclamation-circle text-danger display-1 mb-3"></i>
+                <h3 class="text-danger fw-bold">No Auction Selected</h3>
+                <p class="text-muted mb-4" id="errorMessage"></p>
+                <a href="homePage.html" class="btn btn-outline-success">Go to Homepage</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="detailsContainer" class="container mb-5 d-none">
+        <div class="row g-5">
+            <div class="col-lg-6">
+                <div class="card border-0 shadow-sm">
+                    <img id="detailImg" src="../img/onion.webp" class="detail-img shadow" alt="Product Image">
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <span id="detailStatus" class="badge bg-warning text-dark mb-2 px-3 py-2 rounded-pill"></span>
+
+                <h1 id="detailTitle" class="display-5 fw-bold text-dark mb-3"></h1>
+
+                <div class="d-flex align-items-center mb-4 text-muted">
+                    <i class="bi bi-person-circle fs-4 me-2"></i>
+                    <span>Sold by: <strong id="detailFarmer"></strong></span>
+                </div>
+
+                <div class="d-flex align-items-center mb-4 text-muted">
+                    <i class="bi bi-geo-alt-fill fs-4 me-2"></i> <span>Location: <strong id="detailLocation"></strong></span>
+                </div>
+
+                <div class="d-flex align-items-center mb-4 text-muted">
+                    <i class="bi bi-telephone-fill fs-4 me-2"></i> <span>Phone: <strong id="detailPhone"></strong></span>
+                </div>
+
+                <div class="mb-3">
+                    <span class="badge bg-secondary fs-5">
+                        Quantity: <span id="detailQty"></span>
+                    </span>
+                </div>
+
+                <div class="mb-3">
+                    <h6 class="text-muted">Current Highest Bidder:</h6>
+                    <p class="fs-5 fw-bold text-primary">
+                        <i class="bi bi-trophy-fill me-2"></i>
+                        <span id="detailBidderName"></span>
+                    </p>
+                </div>
+
+                <div class="card price-card p-4 mb-4 shadow-sm">
+                    <div class="row text-center">
+                        <div class="col-6 border-end">
+                            <small class="text-muted">Current Top Bid</small>
+                            <h3 id="detailHighestBid" class="text-success fw-bold mb-0"></h3>
+                        </div>
+                        <div class="col-6">
+                            <small class="text-muted">Base Price</small>
+                            <h4 id="detailBasePrice" class="text-secondary mb-0"></h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <p class="mb-1 text-muted">Time Remaining:</p>
+                    <div id="detailTimer" class="fs-4 fw-bold text-danger"></div>
+                </div>
+
+                <div class="mb-4">
+                    <h5>Description</h5>
+                    <p id="detailDesc" class="text-secondary" style="line-height: 1.8;">
+                        
+                    </p>
+                    <ul class="list-unstyled text-muted">
+                        <li><i class="bi bi-bar-chart me-2"></i> Total Bids: <strong id="detailBidCount"></strong></li>
+                    </ul>
+                </div>
+
+                <div class="d-grid gap-2">
+                    <button id="mainBidBtn" class="btn btn-success btn-lg py-3 fw-bold shadow-sm bid-btn-trigger" 
+                            data-auc-id=""
+                            data-auc-title=""
+                            data-auc-highest-bid=""
+                            >
+                        <i class="bi bi-hammer me-2"></i> Place Bid Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- bid modal -->
+    <div class="modal fade" id="bidModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header bg-success text-white">
+            <h5 class="modal-title">Place Your Bid</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form id="bidForm">
+              <input type="hidden" id="modalAucId" name="auc_id">
+              <h4 class="text-center mb-3 text-danger" id="modalError"></h4>
+              <h4 id="modalAucTitle" class="text-center mb-3"></h4>
+              
+              <div class="mb-3">
+                <label class="form-label">Current Highest Bid</label>
+                <input type="text" class="form-control" id="modalHighestBid" readonly>
+              </div>
+              
+              <div class="mb-3">
+                <label class="form-label">Your Bid Amount (Rs)</label>
+                <input type="number" class="form-control" name="bid_amount" required placeholder="Enter amount higher than current bid">
+              </div>
+              
+              <div class="d-grid">
+                <button type="submit" class="btn btn-success">Confirm Bid</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- login modal for unauthorized user -->
+    <div class="modal fade" id="loginPromptModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-center p-4">
+          <div class="modal-header border-0 pb-0">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3 text-primary">
+              <i class="bi bi-shield-lock-fill" style="font-size: 3rem;"></i>
+            </div>
+            <h4 class="fw-bold">Login Required</h4>
+            <p class="text-muted">You need to be a registered Buyer to place a bid on this item.</p>
+            
+            <div class="d-grid gap-2 col-10 mx-auto mt-4">
+              <a href="login.html" class="btn btn-primary btn-lg">
+                Log In
+              </a>
+              <a href="signup.html" class="btn btn-outline-secondary">
+                Create an Account
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <script src="../js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="../js/jquery/jquery-3.6.0.min.js"></script>
+    <script src="../js/viewBid.js"></script>
+</body>
+</html>
